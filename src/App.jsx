@@ -488,6 +488,43 @@ const FontStyle = () => (
     }
     .real-gold-shimmer { animation: realGoldShimmer 18s ease-in-out infinite; }
     .gold-heart-beat   { animation: goldHeartBeat 4s ease-in-out infinite; }
+    .hero-text-col {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: 0;
+  gap: 1.4rem !important;
+}
+.hero-text-col h1 {
+  font-size: clamp(2rem, 9vw, 3rem) !important;
+}
+.hero-text-col p {
+  font-size: 0.88rem !important;
+  max-width: 100% !important;
+}
+@media (max-width: 768px) {
+  .hero-trust img {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .hero-trust .hero-trust-divider {
+    height: 40px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-text-col {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -2rem;
+    gap: 2rem !important;
+  }
+  .hero-text-col h1 {
+    font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
+  }
+  .hero-text-col p {
+    font-size: 0.92rem !important;
+    max-width: 430px !important;
+  }
+}
   `}</style>
 );
  
@@ -570,7 +607,7 @@ function Hero() {
         display: "flex", alignItems: "center",
         position: "relative", zIndex: 5 }}>
  
-        <div style={{ display: "flex", flexDirection: "column", gap: "2rem", maxWidth: 580, paddingLeft: "0", marginLeft: "-2rem" }}>
+        <div className="hero-text-col" style={{ display: "flex", flexDirection: "column", gap: "2rem", maxWidth: 580 }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span style={{
               display: "inline-flex", alignItems: "center", gap: "0.55rem",
@@ -619,7 +656,7 @@ function Hero() {
             <Btn outline>Mehr erfahren</Btn>
           </motion.div>
  
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          <motion.div className="hero-trust" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.48 }}
             style={{ display: "flex", gap: "0", flexWrap: "wrap", paddingTop: "0.5rem", alignItems: "flex-start" }}>
  
@@ -644,7 +681,7 @@ function Hero() {
             </a>
  
             {/* Trennlinie */}
-            <div style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
+            <div className="hero-trust-divider" style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
  
             {/* Trust 2 — Ganzheitlicher Ansatz (Hände + Herz) */}
             <a href="#services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem", flex: 1, minWidth: 90, cursor: "pointer", textDecoration: "none" }}>
@@ -667,7 +704,7 @@ function Hero() {
             </a>
  
             {/* Trennlinie */}
-            <div style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
+            <div className="hero-trust-divider" style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
  
             {/* Trust 3 — Individuelle Begleitung (Schmetterling) */}
             <a href="#services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem", flex: 1, minWidth: 90, cursor: "pointer", textDecoration: "none" }}>
