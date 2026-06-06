@@ -533,7 +533,9 @@ const FontStyle = () => (
   font-size: 0.7rem !important;
 }
 section video {
-  object-position: 30% center !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  background: #FDF0E6 !important;
 }
 @media (min-width: 1024px) {
   .hero-text-col {
