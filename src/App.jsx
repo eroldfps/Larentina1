@@ -494,56 +494,87 @@ const FontStyle = () => (
   margin-left: 0;
   gap: 1.4rem !important;
 }
+/* ═══ MOBILE HERO — Premium Layout ═══ */
+.hero-section-mobile {
+  min-height: auto !important;
+  padding-top: 110px !important;
+  padding-bottom: 3rem !important;
+}
+.hero-section-mobile > div:last-child {
+  padding: 0 !important;
+}
 .hero-text-col {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin-left: 0;
-  gap: 1rem !important;
+  gap: 1.6rem !important;
   position: relative;
   z-index: 10;
+  max-width: 100% !important;
 }
+.hero-text-col > *:nth-child(1) { order: 1; }
+.hero-text-col > *:nth-child(2) { order: 2; }
+.hero-text-col > *:nth-child(3) { order: 3; }
+.hero-text-col > *:nth-child(5) { order: 4; margin-top: 0.3rem; }
+.hero-text-col > *:nth-child(4) { order: 5; }
+.hero-text-col > *:nth-child(6) { order: 6; margin-top: 1rem; }
+
 .hero-text-col h1 {
-  font-size: 2.2rem !important;
-  line-height: 1.1 !important;
+  font-size: 2.4rem !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.01em !important;
 }
 .hero-text-col p {
-  font-size: 0.85rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.75 !important;
   max-width: 100% !important;
+  color: #6F4D42 !important;
+  opacity: 0.85;
 }
 .hero-trust {
   gap: 0 !important;
+  justify-content: center !important;
 }
 .hero-trust > a {
   min-width: 80px !important;
+  flex: 1 1 auto !important;
 }
 .hero-trust img {
-  width: 60px !important;
-  height: 60px !important;
+  width: 64px !important;
+  height: 64px !important;
 }
 .hero-trust span {
-  font-size: 0.62rem !important;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.04em !important;
 }
 .hero-trust .hero-trust-divider {
-  height: 35px !important;
-  margin: 0 0.2rem !important;
+  height: 38px !important;
+  margin: 0 0.3rem !important;
 }
 .btn-shimmer {
-  padding: 0.7rem 1.3rem !important;
-  font-size: 0.7rem !important;
+  padding: 0.95rem 1.6rem !important;
+  font-size: 0.78rem !important;
 }
 section video {
-  object-fit: contain !important;
-  object-position: center top !important;
-  background: #FDF0E6 !important;
+  object-fit: cover !important;
+  object-position: 65% center !important;
+  transform: scale(1.05) !important;
 }
+
 @media (min-width: 1024px) {
+  .hero-section-mobile {
+    min-height: 100vh !important;
+    padding-top: 76px !important;
+    padding-bottom: 0 !important;
+  }
   .hero-text-col {
     padding-left: 0;
     padding-right: 0;
     margin-left: -2rem;
     gap: 2rem !important;
+    max-width: 580px !important;
   }
+  .hero-text-col > * { order: initial !important; margin-top: 0 !important; }
   .hero-text-col h1 {
     font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
     line-height: 1.08 !important;
@@ -552,6 +583,7 @@ section video {
     font-size: 0.92rem !important;
     line-height: 1.90 !important;
     max-width: 430px !important;
+    opacity: 1;
   }
   .hero-trust img {
     width: 150px !important;
@@ -570,6 +602,7 @@ section video {
   }
   section video {
     object-position: center !important;
+    transform: none !important;
   }
 }
   `}</style>
@@ -634,7 +667,7 @@ function Navbar() {
  
 function Hero() {
   return (
-    <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: 76 }}>
+    <section className="hero-section-mobile" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: 76 }}>
       <video autoPlay muted loop playsInline
   style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
   <source src="/animation.mp4" type="video/mp4" />
