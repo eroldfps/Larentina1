@@ -528,6 +528,13 @@ const FontStyle = () => (
   height: 35px !important;
   margin: 0 0.2rem !important;
 }
+.btn-shimmer {
+  padding: 0.7rem 1.3rem !important;
+  font-size: 0.7rem !important;
+}
+section video {
+  object-position: 30% center !important;
+}
 @media (min-width: 1024px) {
   .hero-text-col {
     padding-left: 0;
@@ -554,6 +561,13 @@ const FontStyle = () => (
   .hero-trust .hero-trust-divider {
     height: 60px !important;
     margin: 0 0.6rem !important;
+  }
+  .btn-shimmer {
+    padding: 0.95rem 2.0rem !important;
+    font-size: 0.82rem !important;
+  }
+  section video {
+    object-position: center !important;
   }
 }
   `}</style>
