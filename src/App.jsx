@@ -448,6 +448,10 @@ const FontStyle = () => (
     @media (min-width: 1024px) {
       .navbar-logo { height: 155px !important; margin-top: -22px !important; }
     }
+    .navbar-inner { flex-direction: row-reverse; padding: 0 1.5rem !important; }
+    @media (min-width: 1024px) {
+      .navbar-inner { flex-direction: row !important; padding: 0 3rem !important; }
+    }
     .hero-section-mobile {
       min-height: auto !important;
       padding-top: 110px !important;
@@ -582,7 +586,7 @@ function Navbar() {
         borderBottom: scrolled ? `1px solid rgba(216,176,107,0.16)` : "none",
         transition: "all 0.4s ease",
       }}>
-      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 3rem", height: 76, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div className="navbar-inner" style={{ maxWidth: "100%", margin: "0 auto", padding: "0 3rem", height: 76, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <a href="#" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
           <img src="/larentinaneu1.png" alt="Larentina Seelenfluss" style={{ height: 155, width: "auto", objectFit: "contain", mixBlendMode: "multiply", marginTop: "-22px" }} />
           <span style={{ fontFamily: sans, fontSize: "0.63rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }} className="hidden sm:block"></span>
@@ -1075,7 +1079,7 @@ function AboutSection() {
           </Reveal>
           <Reveal delay={0.14}>
             <div style={{ marginTop: "1.8rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <Body>Diplomierte Gesundheits- &amp; Krankenschwester, zertifizierte Beraterin nach Dr. Rüdiger Dahlke und leidenschaftliche Therapeutin. In meiner Larentina-Praxis verbinde ich klinisches Fachwissen mit spiritueller Tiefe.</Body>
+              <Body>Diplomierte Gesundheits- &amp; Krankenschwester, zertifizierte Beraterin nach Dr. Rüdiger Dahlke und leidenschaftliche Gesundheitsberaterin. In meiner Larentina-Praxis verbinde ich klinisches Fachwissen mit spiritueller Tiefe.</Body>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
