@@ -444,6 +444,10 @@ const FontStyle = () => (
     .gold-heart-beat   { animation: goldHeartBeat 4s ease-in-out infinite; }
 
     /* ═══ MOBILE HERO — Premium Layout ═══ */
+    .navbar-logo { height: 90px !important; margin-top: -8px !important; }
+    @media (min-width: 1024px) {
+      .navbar-logo { height: 155px !important; margin-top: -22px !important; }
+    }
     .hero-section-mobile {
       min-height: auto !important;
       padding-top: 110px !important;
