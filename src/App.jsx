@@ -590,7 +590,7 @@ function Navbar() {
           ))}
         </nav>
         <div className="hidden lg:block" style={{ marginLeft: "3rem" }}>
-          <Btn dark>Kennenlerngespräch</Btn>
+          <Btn dark>Jetzt Buchen</Btn>
         </div>
         <button className="lg:hidden" onClick={() => setOpen(!open)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
@@ -606,7 +606,7 @@ function Navbar() {
             style={{ background: "rgba(251,247,242,0.97)", backdropFilter: "blur(20px)", borderBottom: `1px solid rgba(214,176,106,0.15)`, overflow: "hidden" }}>
             <div style={{ padding: "1.5rem 2rem 2rem", display: "flex", flexDirection: "column", gap: "1.2rem" }}>
               {nav.map(l => <a key={l} href="#" style={{ fontFamily: sans, color: C.dark, fontSize: "0.95rem" }} onClick={() => setOpen(false)}>{l}</a>)}
-              <Btn dark small>Kennenlerngespräch</Btn>
+              <Btn dark small>Jetzt Buchen</Btn>
             </div>
           </motion.div>
         )}
@@ -684,7 +684,7 @@ function Hero() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.32 }}
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Btn dark>Kennenlerngespräch</Btn>
+            <Btn dark>Jetzt Buchen</Btn>
             <Btn outline>Mehr erfahren</Btn>
           </motion.div>
 
@@ -1317,7 +1317,7 @@ function FinalCTA() {
             Ein kostenfreies Kennenlerngespräch ist dein erster Schritt — unverbindlich, offen und ohne Erwartungen. Nur Raum für dich.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
-            <Btn dark>Jetzt Kennenlerngespräch buchen</Btn>
+            <Btn dark>Jetzt buchen</Btn>
             <Btn outline>Angebote ansehen</Btn>
           </div>
           <p style={{ fontFamily: sans, color: C.muted, fontSize: "0.75rem", marginTop: "1.2rem", letterSpacing: "0.05em", opacity: 0.8 }}>
@@ -2031,7 +2031,7 @@ const MODAL_CONTENT = {
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Dein erster Schritt</p>
       <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "1.2rem" }}>
-        Kennenlerngespräch
+        Jetzt Buchen
       </h2>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.92rem", lineHeight: 1.85, marginBottom: "2rem" }}>
         Ein kostenfreies, unverbindliches Gespräch — nur Raum für dich. Lass uns gemeinsam schauen, was du gerade brauchst und ob wir gut zusammenpassen.
