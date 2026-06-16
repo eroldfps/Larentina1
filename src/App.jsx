@@ -623,8 +623,18 @@ function Navbar() {
                 { label: "Seelenbilder", href: "#seelenbilder" },
                 { label: "Erfahrungen", href: "#erfahrungen" },
                 { label: "Kontakt", href: "#kontakt" },
-              ].map(l => <a key={l.label} href={l.href} style={{ fontFamily: sans, color: C.dark, fontSize: "0.95rem" }} onClick={() => setOpen(false)}>{l.label}</a>)}
-              <Btn dark small>Jetzt Buchen</Btn>
+              ].map(l => <a key={l.label} href={l.href} style={{ fontFamily: sans, color: C.dark, fontSize: "0.95rem" }} onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setTimeout(() => {
+                  if (l.href === "#") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    const el = document.querySelector(l.href);
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }, 250);
+              }}>{l.label}</a>)}
             </div>
           </motion.div>
         )}
