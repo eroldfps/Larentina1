@@ -1,32 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
- 
+
 // ─── TOKENS v13 — Larentina · Sacred Sanctuary Edition ─────────────────────
-// Master palette extracted from hero background
-// Cohesive red thread: #FDF0E6 ivory runs through ALL sections
 const C = {
-  // Hauptfarben aus dem Hero-Bild
-  bg:        "#FDF0E6",   // primary warm ivory — durchgängig
-  warm:      "#FBE5D3",   // secondary champagne glow
-  cream:     "#F8DCCB",   // cloud / blush highlights
-  pearl:     "#FBE5D3",   // elevated cards
-  // Akzente
-  sand:      "#E9C38A",   // luxury gold accent
-  sage:      "#E9C38A",   // CTA gold
+  bg:        "#FDF0E6",
+  warm:      "#FBE5D3",
+  cream:     "#F8DCCB",
+  pearl:     "#FBE5D3",
+  sand:      "#E9C38A",
+  sage:      "#E9C38A",
   softGold:  "#F0D5A8",
   deepGold:  "#C9A055",
-  soft:      "#D89A93",   // dusty rose warmth
+  soft:      "#D89A93",
   roseHover: "#C88880",
-  // Text
-  dark:      "#6F4D42",   // primary warm taupe
-  muted:     "#9C7B6E",   // secondary warm taupe
-  // Dunkler Bereich (Seelenbilder)
+  dark:      "#6F4D42",
+  muted:     "#9C7B6E",
   darkbg:    "#3D2820",
 };
- 
+
 const serif  = "'Cormorant Garamond', Georgia, serif";
 const sans   = "'Manrope', system-ui, sans-serif";
- 
+
 function Reveal({ children, className = "", delay = 0, y = 24, once = true }) {
   const ref = useRef(null);
   const visible = useInView(ref, { once, margin: "-60px" });
@@ -39,7 +33,7 @@ function Reveal({ children, className = "", delay = 0, y = 24, once = true }) {
     </motion.div>
   );
 }
- 
+
 function Blob({ className = "", color = C.sand, opacity = 0.28 }) {
   return (
     <svg className={`absolute pointer-events-none select-none ${className}`}
@@ -49,7 +43,7 @@ function Blob({ className = "", color = C.sand, opacity = 0.28 }) {
     </svg>
   );
 }
- 
+
 function ImgBox({ label = "Bild", aspect = "aspect-[3/4]", rounded = "rounded-2xl", className = "" }) {
   return (
     <div className={`${aspect} ${rounded} overflow-hidden flex flex-col items-center justify-center gap-3 ${className}`}
@@ -63,7 +57,7 @@ function ImgBox({ label = "Bild", aspect = "aspect-[3/4]", rounded = "rounded-2x
     </div>
   );
 }
- 
+
 function Tag({ children }) {
   return (
     <span style={{ fontFamily: sans, fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.sage, display: "block", marginBottom: "0.75rem" }}>
@@ -71,7 +65,7 @@ function Tag({ children }) {
     </span>
   );
 }
- 
+
 function H2({ children, light = false, center = false }) {
   return (
     <h2 style={{ fontFamily: serif, color: light ? C.cream : C.dark, fontSize: "clamp(1.95rem,3.8vw,3.1rem)", lineHeight: 1.13, fontWeight: 400, textAlign: center ? "center" : undefined }}>
@@ -79,7 +73,7 @@ function H2({ children, light = false, center = false }) {
     </h2>
   );
 }
- 
+
 function Body({ children, center = false, light = false, className = "" }) {
   return (
     <p style={{ fontFamily: sans, color: light ? C.soft : C.muted, fontSize: "0.9rem", lineHeight: 1.82, textAlign: center ? "center" : undefined }} className={className}>
@@ -87,8 +81,7 @@ function Body({ children, center = false, light = false, className = "" }) {
     </p>
   );
 }
- 
-// ─── BTN — Champagne Rosé · Modal Trigger ────────────────────────────────────
+
 function GoldHeart() {
   return (
     <span className="gold-heart-beat" style={{
@@ -118,8 +111,7 @@ function GoldHeart() {
     </span>
   );
 }
- 
-// Modal context — shared across all buttons
+
 function useModal() {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState(null);
@@ -127,15 +119,14 @@ function useModal() {
   const hide = () => setOpen(false);
   return { open, content, show, hide };
 }
- 
-// Liquid glass modal — premium frosted
+
 function LiquidGlassModal({ open, content, onClose }) {
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
- 
+
   return (
     <AnimatePresence>
       {open && (
@@ -173,14 +164,12 @@ function LiquidGlassModal({ open, content, onClose }) {
                 0 4px 24px rgba(201,160,85,0.18)
               `,
             }}>
-            {/* Golden top highlight */}
             <div style={{
               position: "absolute", top: 0, left: "10%", right: "10%", height: 1,
               background: "linear-gradient(to right, transparent, rgba(233,195,138,0.7), transparent)",
               borderRadius: "0 0 50% 50%",
             }} />
- 
-            {/* Close button */}
+
             <button onClick={onClose}
               style={{
                 position: "absolute", top: 20, right: 20,
@@ -195,7 +184,7 @@ function LiquidGlassModal({ open, content, onClose }) {
               onMouseLeave={e => e.currentTarget.style.background = "rgba(253,240,230,0.6)"}>
               ×
             </button>
- 
+
             {content}
           </motion.div>
         </motion.div>
@@ -203,8 +192,7 @@ function LiquidGlassModal({ open, content, onClose }) {
     </AnimatePresence>
   );
 }
- 
-// Global modal state (simple — at App level via window event)
+
 function Btn({ children, dark = false, outline = false, href = "#", small = false, onClick }) {
   const base = {
     display: "inline-flex",
@@ -223,7 +211,7 @@ function Btn({ children, dark = false, outline = false, href = "#", small = fals
     outline: "none",
     transition: "all 0.3s ease",
   };
- 
+
   const primary = {
     ...base,
     background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -236,7 +224,7 @@ function Btn({ children, dark = false, outline = false, href = "#", small = fals
       inset 0 -1px 0 rgba(160,100,90,0.18)
     `,
   };
- 
+
   const outlineStyle = {
     ...base,
     background: "rgba(253,240,230,0.78)",
@@ -248,20 +236,19 @@ function Btn({ children, dark = false, outline = false, href = "#", small = fals
       inset 0 1px 0 rgba(255,245,230,0.55)
     `,
   };
- 
+
   const style = outline ? outlineStyle : primary;
- 
+
   const handleClick = (e) => {
     if (onClick) {
       e.preventDefault();
       onClick(e);
     } else {
-      // Default: open Kennenlerngespräch modal
       e.preventDefault();
       window.dispatchEvent(new CustomEvent("openModal", { detail: { type: "kontakt" } }));
     }
   };
- 
+
   return (
     <motion.a href={href} style={style}
       className="btn-shimmer"
@@ -299,8 +286,7 @@ function Btn({ children, dark = false, outline = false, href = "#", small = fals
     </motion.a>
   );
 }
- 
-// ─── FONT + GLOBAL CSS ───────────────────────────────────────────────────────
+
 const FontStyle = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600&display=swap');
@@ -313,23 +299,9 @@ const FontStyle = () => (
     ::-webkit-scrollbar-thumb{background:#E9C38A66;border-radius:3px}
     a{text-decoration:none;color:inherit}
     button{appearance:none;-webkit-appearance:none}
- 
-    /* ══ GOLD BORDER LIGHT-CATCH — only ON the thin gold line ══ */
-    /*
-       Technik: absolutes div sitzt exakt auf der Border-Linie (1.5px ring).
-       Mit CSS mask wird ausschließlich der ringförmige Bereich gezeigt.
-       Ein schmaler heller Lichtpunkt wandert sehr langsam darüber —
-       sichtbar NUR auf der Border, niemals auf dem Button-Inneren.
-    */
-    .btn-shimmer {
-      position: relative;
-      /* WICHTIG: kein overflow:hidden — sonst maskiert es das Pseudo-Element falsch */
-    }
-    .btn-shimmer > * {
-      position: relative;
-      z-index: 2;
-    }
-    /* Ring layer — liegt exakt auf der Border */
+
+    .btn-shimmer { position: relative; }
+    .btn-shimmer > * { position: relative; z-index: 2; }
     .btn-shimmer::before {
       content: '';
       position: absolute;
@@ -337,7 +309,6 @@ const FontStyle = () => (
       border-radius: inherit;
       pointer-events: none;
       z-index: 3;
-      /* Diagonaler Light-Catch — schmal und sanft */
       background: linear-gradient(
         115deg,
         transparent 0%,
@@ -352,7 +323,6 @@ const FontStyle = () => (
       );
       background-size: 220% 220%;
       background-position: 200% 50%;
-      /* MASK: zeigt NUR den 1.5px Ring um den Button — alles innen ist transparent */
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
@@ -371,7 +341,7 @@ const FontStyle = () => (
       85%        { opacity: 0.85; }
       100%       { background-position: -100% 50%; opacity: 0; }
     }
- 
+
     @keyframes luxFloat {
       0%,100% { transform: translateY(0px); }
       50%      { transform: translateY(-4px); }
@@ -382,16 +352,10 @@ const FontStyle = () => (
       20%  { opacity: 0; transform: translateX(220%) skewX(-18deg); }
       100% { opacity: 0; transform: translateX(220%) skewX(-18deg); }
     }
- 
-    /* ══ PREMIUM METALLIC GOLD BORDER SYSTEM ══ */
- 
-    /* Shimmer: ein sanftes Licht wandert über den Gold-Ring — 12s, kaum wahrnehmbar */
     @keyframes champagneShimmer {
       0%   { background-position: -400% center; }
       100% { background-position: 400% center; }
     }
- 
-    /* Soft outer glow pulsiert sehr langsam */
     @keyframes goldGlowBreath {
       0%,100% { box-shadow:
         0 0 0 1.5px rgba(216,176,122,0.0),
@@ -402,14 +366,11 @@ const FontStyle = () => (
         0 6px 28px rgba(183,134,77,0.22),
         inset 0 1px 0 rgba(248,231,210,0.28); }
     }
- 
-    /* Gold border wrapper — erzeugt den echten metallischen Ring */
     .gold-ring {
       position: relative;
       display: inline-flex;
       border-radius: 100px;
       padding: 1.5px;
-      /* Metallic gold gradient als Border via background-clip */
       background: linear-gradient(
         160deg,
         #F8E7D2 0%,
@@ -422,11 +383,8 @@ const FontStyle = () => (
       );
       background-size: 300% 100%;
       animation: champagneShimmer 14s ease-in-out infinite;
-      /* Soft shadow */
       filter: drop-shadow(0 2px 8px rgba(183,134,77,0.18));
     }
- 
-    /* Inner mask — füllt Mitte aus, lässt nur 1.5px Ring übrig */
     .gold-ring-inner {
       border-radius: 98px;
       display: inline-flex;
@@ -434,8 +392,6 @@ const FontStyle = () => (
       position: relative;
       overflow: hidden;
     }
- 
-    /* Inneres Highlight: hauchdünner heller Streifen oben */
     .gold-ring-inner::after {
       content: '';
       position: absolute;
@@ -473,9 +429,7 @@ const FontStyle = () => (
     .shape-drift  { animation: shapeDrift    22s ease-in-out infinite; }
     .shape-float  { animation: shapeFloat    18s ease-in-out infinite; }
     .logo-screen  { mix-blend-mode: multiply; }
- 
-    /* ── Echtes Metallic Gold System ── */
-    /* Statt flaches Gelb: mehrschichtiges Gold mit Tiefe + Dunkel + Licht */
+
     @keyframes realGoldShimmer {
       0%   { opacity: 0; transform: translateX(-150%) skewX(-20deg); }
       6%   { opacity: 1; }
@@ -488,126 +442,122 @@ const FontStyle = () => (
     }
     .real-gold-shimmer { animation: realGoldShimmer 18s ease-in-out infinite; }
     .gold-heart-beat   { animation: goldHeartBeat 4s ease-in-out infinite; }
+
+    /* ═══ MOBILE HERO — Premium Layout ═══ */
+    .hero-section-mobile {
+      min-height: auto !important;
+      padding-top: 110px !important;
+      padding-bottom: 3rem !important;
+    }
+    .hero-section-mobile > div:last-child {
+      padding: 0 !important;
+    }
     .hero-text-col {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: 0;
-  gap: 1.4rem !important;
-}
-/* ═══ MOBILE HERO — Premium Layout ═══ */
-.hero-section-mobile {
-  min-height: auto !important;
-  padding-top: 110px !important;
-  padding-bottom: 3rem !important;
-}
-.hero-section-mobile > div:last-child {
-  padding: 0 !important;
-}
-.hero-text-col {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: 0;
-  gap: 1.6rem !important;
-  position: relative;
-  z-index: 10;
-  max-width: 100% !important;
-}
-.hero-text-col > *:nth-child(1) { order: 1; }
-.hero-text-col > *:nth-child(2) { order: 2; }
-.hero-text-col > *:nth-child(3) { order: 3; }
-.hero-text-col > *:nth-child(5) { order: 4; margin-top: 0.3rem; }
-.hero-text-col > *:nth-child(4) { order: 5; }
-.hero-text-col > *:nth-child(6) { order: 6; margin-top: 1rem; }
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      margin-left: 0;
+      gap: 1.6rem !important;
+      position: relative;
+      z-index: 10;
+      max-width: 100% !important;
+    }
+    .hero-text-col > *:nth-child(1) { order: 1; }
+    .hero-text-col > *:nth-child(2) { order: 2; }
+    .hero-text-col > *:nth-child(3) { order: 3; }
+    .hero-text-col > *:nth-child(5) { order: 4; margin-top: 0.3rem; }
+    .hero-text-col > *:nth-child(4) { order: 5; }
+    .hero-text-col > *:nth-child(6) { order: 6; margin-top: 1rem; }
 
-.hero-text-col h1 {
-  font-size: 2.4rem !important;
-  line-height: 1.12 !important;
-  letter-spacing: -0.01em !important;
-}
-.hero-text-col p {
-  font-size: 0.92rem !important;
-  line-height: 1.75 !important;
-  max-width: 100% !important;
-  color: #6F4D42 !important;
-  opacity: 0.85;
-}
-.hero-trust {
-  gap: 0 !important;
-  justify-content: center !important;
-}
-.hero-trust > a {
-  min-width: 80px !important;
-  flex: 1 1 auto !important;
-}
-.hero-trust img {
-  width: 64px !important;
-  height: 64px !important;
-}
-.hero-trust span {
-  font-size: 0.66rem !important;
-  letter-spacing: 0.04em !important;
-}
-.hero-trust .hero-trust-divider {
-  height: 38px !important;
-  margin: 0 0.3rem !important;
-}
-.btn-shimmer {
-  padding: 0.95rem 1.6rem !important;
-  font-size: 0.78rem !important;
-}
-section video {
-  object-fit: cover !important;
-  object-position: 65% center !important;
-  transform: scale(1.05) !important;
-}
+    .hero-text-col h1 {
+      font-size: 2.4rem !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.01em !important;
+    }
+    .hero-text-col p {
+      font-size: 0.92rem !important;
+      line-height: 1.75 !important;
+      max-width: 100% !important;
+      color: #6F4D42 !important;
+      opacity: 0.85;
+    }
+    .hero-trust {
+      gap: 0 !important;
+      justify-content: center !important;
+    }
+    .hero-trust > a {
+      min-width: 80px !important;
+      flex: 1 1 auto !important;
+    }
+    .hero-trust img {
+      width: 64px !important;
+      height: 64px !important;
+    }
+    .hero-trust span {
+      font-size: 0.66rem !important;
+      letter-spacing: 0.04em !important;
+    }
+    .hero-trust .hero-trust-divider {
+      height: 38px !important;
+      margin: 0 0.3rem !important;
+    }
+    .btn-shimmer {
+      padding: 0.95rem 1.6rem !important;
+      font-size: 0.78rem !important;
+    }
 
-@media (min-width: 1024px) {
-  .hero-section-mobile {
-    min-height: 100vh !important;
-    padding-top: 76px !important;
-    padding-bottom: 0 !important;
-  }
-  .hero-text-col {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: -2rem;
-    gap: 2rem !important;
-    max-width: 580px !important;
-  }
-  .hero-text-col > * { order: initial !important; margin-top: 0 !important; }
-  .hero-text-col h1 {
-    font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
-    line-height: 1.08 !important;
-  }
-  .hero-text-col p {
-    font-size: 0.92rem !important;
-    line-height: 1.90 !important;
-    max-width: 430px !important;
-    opacity: 1;
-  }
-  .hero-trust img {
-    width: 150px !important;
-    height: 150px !important;
-  }
-  .hero-trust span {
-    font-size: 0.73rem !important;
-  }
-  .hero-trust .hero-trust-divider {
-    height: 60px !important;
-    margin: 0 0.6rem !important;
-  }
-  .btn-shimmer {
-    padding: 0.95rem 2.0rem !important;
-    font-size: 0.82rem !important;
-  }
-  section video {
-    object-position: center !important;
-    transform: none !important;
-  }
-}
+    /* ═══ Video Switcher Mobile/Desktop ═══ */
+    .hero-video-mobile { display: block; }
+    .hero-video-desktop { display: none; }
+    section video {
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-section-mobile {
+        min-height: 100vh !important;
+        padding-top: 76px !important;
+        padding-bottom: 0 !important;
+      }
+      .hero-text-col {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: -2rem;
+        gap: 2rem !important;
+        max-width: 580px !important;
+      }
+      .hero-text-col > * { order: initial !important; margin-top: 0 !important; }
+      .hero-text-col h1 {
+        font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
+        line-height: 1.08 !important;
+      }
+      .hero-text-col p {
+        font-size: 0.92rem !important;
+        line-height: 1.90 !important;
+        max-width: 430px !important;
+        opacity: 1;
+      }
+      .hero-trust img {
+        width: 150px !important;
+        height: 150px !important;
+      }
+      .hero-trust span {
+        font-size: 0.73rem !important;
+      }
+      .hero-trust .hero-trust-divider {
+        height: 60px !important;
+        margin: 0 0.6rem !important;
+      }
+      .btn-shimmer {
+        padding: 0.95rem 2.0rem !important;
+        font-size: 0.82rem !important;
+      }
+      .hero-video-mobile { display: none !important; }
+      .hero-video-desktop { display: block !important; }
+    }
   `}</style>
 );
- 
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -616,9 +566,9 @@ function Navbar() {
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
- 
+
   const nav = ["Home","Begleitung","Über mich","Seelenbilder","Erfahrungen","Kontakt"];
- 
+
   return (
     <motion.header initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
       style={{
@@ -664,29 +614,31 @@ function Navbar() {
     </motion.header>
   );
 }
- 
+
 function Hero() {
   return (
     <section className="hero-section-mobile" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: 76 }}>
       <video autoPlay muted loop playsInline
-  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
-  <source src="/animation.mp4" type="video/mp4" />
-</video>
+        className="hero-video-desktop"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
+        <source src="/animation.mp4" type="video/mp4" />
+      </video>
+      <video autoPlay muted loop playsInline
+        className="hero-video-mobile"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
+        <source src="/mobile.mp4" type="video/mp4" />
+      </video>
       <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
         background: `
           radial-gradient(ellipse 70% 55% at 8% 12%, rgba(59, 10, 3, 0.22) 0%, transparent 68%),
           radial-gradient(ellipse 50% 45% at 92% 88%, rgba(216,176,107,0.12) 0%, transparent 65%),
           radial-gradient(ellipse 35% 30% at 18% 78%, rgba(235,200,195,0.12) 0%, transparent 60%)
         ` }} />
-      
-      
-      
-     
- 
+
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "6rem 2rem 5rem", width: "100%",
         display: "flex", alignItems: "center",
         position: "relative", zIndex: 5 }}>
- 
+
         <div className="hero-text-col" style={{ display: "flex", flexDirection: "column", gap: "2rem", maxWidth: 580 }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span style={{
@@ -701,7 +653,7 @@ function Hero() {
               Ganzheitliche Begleitung · Körper · Geist · Seele
             </span>
           </motion.div>
- 
+
           <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.12 }}
             style={{ fontFamily: serif, color: C.dark,
@@ -711,7 +663,7 @@ function Hero() {
             <span style={{ fontWeight: 300 }}>zu dir selbst.</span><br />
             <em style={{ color: "#B78C54", fontWeight: 300, fontStyle: "italic" }}>Zu deiner Kraft.</em>
           </motion.h1>
- 
+
           <motion.div initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
             style={{ display: "flex", alignItems: "center", gap: "0.75rem", transformOrigin: "left" }}>
@@ -719,7 +671,7 @@ function Hero() {
             <span style={{ color: "#D8B06B", fontSize: "0.55rem", letterSpacing: "0.2em" }}>✦</span>
             <div style={{ height: 1, width: 40, background: "linear-gradient(to left, transparent, #D8B06B)" }} />
           </motion.div>
- 
+
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.22 }}
             style={{ fontFamily: sans, color: C.muted, lineHeight: 1.90,
@@ -728,19 +680,18 @@ function Hero() {
             überfordert oder innerlich verloren fühlen — mit einem fundierten
             Gesundheits-Hintergrund und viel Herz.
           </motion.p>
- 
+
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.32 }}
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
             <Btn dark>Kennenlerngespräch</Btn>
             <Btn outline>Mehr erfahren</Btn>
           </motion.div>
- 
+
           <motion.div className="hero-trust" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.48 }}
             style={{ display: "flex", gap: "0", flexWrap: "wrap", paddingTop: "0.5rem", alignItems: "flex-start" }}>
- 
-            {/* Trust 1 — Gesundheitsbackground (Lotus) */}
+
             <a href="#about" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem", flex: 1, minWidth: 90, cursor: "pointer", textDecoration: "none" }}>
               <div className="btn-shimmer" style={{
                 width: 130, height: 130, borderRadius: "50%",
@@ -759,11 +710,9 @@ function Hero() {
                 Gesundheits-<br/>Background
               </span>
             </a>
- 
-            {/* Trennlinie */}
+
             <div className="hero-trust-divider" style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
- 
-            {/* Trust 2 — Ganzheitlicher Ansatz (Hände + Herz) */}
+
             <a href="#services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem", flex: 1, minWidth: 90, cursor: "pointer", textDecoration: "none" }}>
               <div className="btn-shimmer" style={{
                 width: 130, height: 130, borderRadius: "50%",
@@ -782,11 +731,9 @@ function Hero() {
                 Ganzheitlicher<br/>Ansatz
               </span>
             </a>
- 
-            {/* Trennlinie */}
+
             <div className="hero-trust-divider" style={{ width: 1, height: 60, background: "linear-gradient(to bottom, transparent, rgba(201,160,85,0.40), transparent)", alignSelf: "center", flexShrink: 0, margin: "0 0.6rem" }} />
- 
-            {/* Trust 3 — Individuelle Begleitung (Schmetterling) */}
+
             <a href="#services" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem", flex: 1, minWidth: 90, cursor: "pointer", textDecoration: "none" }}>
               <div className="btn-shimmer" style={{
                 width: 130, height: 130, borderRadius: "50%",
@@ -805,16 +752,15 @@ function Hero() {
                 Individuelle<br/>Begleitung
               </span>
             </a>
- 
+
           </motion.div>
         </div>
- 
- 
+
       </div>
     </section>
   );
 }
- 
+
 function ProblemSection() {
   const items = [
     { icon: "◌", title: "Innere Unruhe", text: "Der Kopf hört nicht auf. Selbst in stillen Momenten ist keine echte Ruhe zu finden." },
@@ -852,7 +798,7 @@ function ProblemSection() {
     </section>
   );
 }
- 
+
 function ServicesSection() {
   const cards = [
     { tag: "Golden Harmony Beauty", title: "Kosmetische behandlung", desc: "Nachhaltige, individuelle Begleitung für Frauen, die sich nach innerer Balance, emotionaler Klarheit und echter Veränderung sehnen — mit Herzwärme und professioneller Fachkompetenz.", outcomes: ["Innere Balance & Ruhe", "Emotionale Klarheit", "Neue Energie & Leichtigkeit", "Zurück zu sich selbst"], cta: "Mehr erfahren", highlight: false, modalType: "kernbegleitung" },
@@ -943,7 +889,7 @@ function ServicesSection() {
     </section>
   );
 }
- 
+
 function ApproachSection() {
  const pillars = [
     { title: "Körper", img: "/koerper.png", text: "Körperliche Signale lesen, Atem als Anker, Entspannung und Regulation des Nervensystems." },
@@ -981,7 +927,7 @@ function ApproachSection() {
     </section>
   );
 }
- 
+
 function SeelenbilderSection() {
   const [showAll, setShowAll] = useState(false);
   const artworks = [
@@ -1039,7 +985,7 @@ function SeelenbilderSection() {
     </section>
   );
 }
- 
+
 function AboutSection() {
   const [certsOpen, setCertsOpen] = useState(false);
   const certs = [
@@ -1084,8 +1030,8 @@ function AboutSection() {
         <Reveal>
           <div style={{ position: "relative" }}>
             <div className="w-full max-w-sm shadow-xl" style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "3/4" }}>
-  <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-</div>
+              <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
             <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="hidden md:block"
               style={{ position: "absolute", top: 32, right: -20, padding: "1rem 1.25rem", borderRadius: 16, background: "#FBE5D3", border: `1px solid rgba(233,195,138,0.30)`, maxWidth: 190, boxShadow: "0 12px 32px rgba(110,90,78,0.07)" }}>
@@ -1147,7 +1093,7 @@ function AboutSection() {
     </section>
   );
 }
- 
+
 function TestimonialsSection() {
   const [active, setActive] = useState(0);
   const items = [
@@ -1196,7 +1142,7 @@ function TestimonialsSection() {
     </section>
   );
 }
- 
+
 function FAQSection() {
   const [open, setOpen] = useState(null);
   const faqs = [
@@ -1242,7 +1188,7 @@ function FAQSection() {
     </section>
   );
 }
- 
+
 function KontaktSection() {
   return (
     <section id="kontakt" style={{ background: "#FDF0E6", padding: "6rem 0", position: "relative", overflow: "hidden" }}>
@@ -1260,7 +1206,6 @@ function KontaktSection() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "2.5rem", alignItems: "start" }}
           className="!grid-cols-1 lg:!grid-cols-[1fr_1.2fr]">
 
-          {/* LEFT — Info */}
           <Reveal>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               <div style={{ padding: "2rem", borderRadius: 24, background: "#FBE5D3", border: "1px solid rgba(233,195,138,0.30)", boxShadow: "0 4px 24px rgba(217,154,147,0.10)" }}>
@@ -1305,7 +1250,6 @@ function KontaktSection() {
             </div>
           </Reveal>
 
-          {/* RIGHT — Map + Form */}
           <Reveal delay={0.1}>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               <div style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 8px 32px rgba(217,154,147,0.15)", border: "1px solid rgba(233,195,138,0.30)" }}>
@@ -1384,7 +1328,7 @@ function FinalCTA() {
     </section>
   );
 }
- 
+
 function Footer() {
   const year = new Date().getFullYear();
   const cols = [
@@ -1435,8 +1379,7 @@ function Footer() {
     </footer>
   );
 }
- 
-// Globale Modal-Inhalte
+
 const MODAL_CONTENT = {
   individuelles_seelenbild: (
     <div>
@@ -2014,11 +1957,11 @@ const MODAL_CONTENT = {
     </div>
   ),
 };
- 
+
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState("kontakt");
- 
+
   useEffect(() => {
     const handler = (e) => {
       setModalType(e.detail?.type || "kontakt");
@@ -2027,7 +1970,7 @@ export default function App() {
     window.addEventListener("openModal", handler);
     return () => window.removeEventListener("openModal", handler);
   }, []);
- 
+
   return (
     <>
       <FontStyle />
