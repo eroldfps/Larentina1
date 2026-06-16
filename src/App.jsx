@@ -637,11 +637,9 @@ function Hero() {
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
         <source src="/animation.mp4" type="video/mp4" />
       </video>
-      <video autoPlay muted loop playsInline
+      <img src="/mobile.png" alt=""
         className="hero-video-mobile"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
-        <source src="/mobile.mp4" type="video/mp4" />
-      </video>
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }} />
       <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
         background: `
           radial-gradient(ellipse 70% 55% at 8% 12%, rgba(59, 10, 3, 0.22) 0%, transparent 68%),
