@@ -684,7 +684,7 @@ function Hero() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.32 }}
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Btn dark>Jetzt Buchen</Btn>
+            <Btn dark>Jetzt </Btn>
             <Btn outline>Mehr erfahren</Btn>
           </motion.div>
 
@@ -942,7 +942,7 @@ function SeelenbilderSection() {
     { label: "Spanische Tänzerin", size: "aspect-[3/4]", img: "/spanische_taenzerin.png", modal: "spanische_taenzerin" },
   ];
   return (
-    <section style={{ background: "linear-gradient(160deg, #3D2820 0%, #4A3528 55%, #3D2820 100%)", padding: "6rem 0", position: "relative", overflow: "hidden" }}>
+    <section id="seelenbilder" style={{ background: "linear-gradient(160deg, #3D2820 0%, #4A3528 55%, #3D2820 100%)", padding: "6rem 0", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.12, background: `radial-gradient(circle at 22% 38%, #D8B06B, transparent 52%), radial-gradient(circle at 80% 68%, #EBC8C3, transparent 48%)` }} />
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2rem", position: "relative", zIndex: 1 }}>
         <Reveal>
@@ -1105,7 +1105,7 @@ function TestimonialsSection() {
     { name: "Vera H.", tag: "Lebensanalyse", text: "Wow — so ein kraftvolles Bild! Diese Beratung hat mir so viel bewusst gemacht und vieles bestätigt. Ich werde immer wieder nachlesen, um mich zu erinnern. Herzlichen Dank für deine so wertvolle Beratung und Lebensanalyse." },
   ];
   return (
-    <section style={{ background: `linear-gradient(160deg, #FDF0E6 0%, #FBE5D3 50%, #FDF0E6 100%)`, padding: "6rem 0" }}>
+    <section id="erfahrungen" style={{ background: `linear-gradient(160deg, #FDF0E6 0%, #FBE5D3 50%, #FDF0E6 100%)`, padding: "6rem 0" }}>
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 2rem" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
