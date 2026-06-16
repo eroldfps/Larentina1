@@ -584,9 +584,16 @@ function Navbar() {
           <span style={{ fontFamily: sans, fontSize: "0.63rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.muted }} className="hidden sm:block"></span>
         </a>
         <nav className="hidden lg:flex" style={{ gap: "2.2rem", alignItems: "center" }}>
-          {nav.map(l => (
-            <a key={l} href="#" style={{ fontFamily: sans, fontSize: "0.95rem", fontWeight: 600, color: C.muted, letterSpacing: "0.05em", transition: "color 0.2s" }}
-              onMouseEnter={e => e.target.style.color = C.dark} onMouseLeave={e => e.target.style.color = C.muted}>{l}</a>
+          {[
+            { label: "Home", href: "#" },
+            { label: "Begleitung", href: "#services" },
+            { label: "Über mich", href: "#about" },
+            { label: "Seelenbilder", href: "#seelenbilder" },
+            { label: "Erfahrungen", href: "#erfahrungen" },
+            { label: "Kontakt", href: "#kontakt" },
+          ].map(l => (
+            <a key={l.label} href={l.href} style={{ fontFamily: sans, fontSize: "0.95rem", fontWeight: 600, color: C.muted, letterSpacing: "0.05em", transition: "color 0.2s" }}
+              onMouseEnter={e => e.target.style.color = C.dark} onMouseLeave={e => e.target.style.color = C.muted}>{l.label}</a>
           ))}
         </nav>
         <div className="hidden lg:block" style={{ marginLeft: "3rem" }}>
@@ -605,7 +612,14 @@ function Navbar() {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }}
             style={{ background: "rgba(251,247,242,0.97)", backdropFilter: "blur(20px)", borderBottom: `1px solid rgba(214,176,106,0.15)`, overflow: "hidden" }}>
             <div style={{ padding: "1.5rem 2rem 2rem", display: "flex", flexDirection: "column", gap: "1.2rem" }}>
-              {nav.map(l => <a key={l} href="#" style={{ fontFamily: sans, color: C.dark, fontSize: "0.95rem" }} onClick={() => setOpen(false)}>{l}</a>)}
+              {[
+                { label: "Home", href: "#" },
+                { label: "Begleitung", href: "#services" },
+                { label: "Über mich", href: "#about" },
+                { label: "Seelenbilder", href: "#seelenbilder" },
+                { label: "Erfahrungen", href: "#erfahrungen" },
+                { label: "Kontakt", href: "#kontakt" },
+              ].map(l => <a key={l.label} href={l.href} style={{ fontFamily: sans, color: C.dark, fontSize: "0.95rem" }} onClick={() => setOpen(false)}>{l.label}</a>)}
               <Btn dark small>Jetzt Buchen</Btn>
             </div>
           </motion.div>
