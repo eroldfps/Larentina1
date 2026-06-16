@@ -1381,6 +1381,100 @@ function Footer() {
 }
 
 const MODAL_CONTENT = {
+  kernbegleitung: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Golden Harmony Beauty</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
+        Kosmetische Behandlung
+      </h2>
+      <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.1rem", marginBottom: "1.5rem" }}>
+        Natürliche Schönheit · Innere Balance
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Eine ganzheitliche kosmetische Behandlung, die deine natürliche Ausstrahlung sanft zum Strahlen bringt.
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1.8rem" }}>
+        Mit hochwertigen Produkten, achtsamer Berührung und einer wohltuenden Atmosphäre wird deine Haut gepflegt — gleichzeitig darf dein Nervensystem zur Ruhe kommen und neue Frische in Körper und Geist einkehren.
+      </p>
+
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Ideal für</p>
+      <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.8rem" }}>
+        {[
+          "Natürliche, strahlende Haut",
+          "Tiefe Entspannung & Wohlbefinden",
+          "Innere Balance & Ruhe",
+          "Achtsame Auszeit nur für dich",
+          "Ganzheitliche Pflege für Körper & Seele",
+        ].map(o => (
+          <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+            <span style={{ color: "#E9C38A", fontSize: "0.55rem", flexShrink: 0, marginTop: "0.45rem" }}>✦</span>
+            <span style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.6 }}>{o}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 60–90 Minuten</span>
+      </div>
+
+      <a href="#booking" style={{
+        display: "block", textAlign: "center",
+        padding: "1rem 2rem", borderRadius: 100,
+        background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+        color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
+        textDecoration: "none",
+        boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
+      }}>Jetzt buchen</a>
+    </div>
+  ),
+  aromaoel: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Golden Aura Experience</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
+        Fernbehandlung
+      </h2>
+      <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.1rem", marginBottom: "1.5rem" }}>
+        Energetische Begleitung über jede Distanz
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Eine kraftvolle, energetische Fernbehandlung, die dich unabhängig von deinem Aufenthaltsort erreicht.
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1.8rem" }}>
+        Über energetische Verbindung darfst du tiefe Entspannung, Klärung und Harmonisierung erfahren — für dein Nervensystem, deine Energiezentren und deine Seele. Eine wohltuende Auszeit, ganz bei dir, ganz für dich.
+      </p>
+
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Ideal für</p>
+      <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.8rem" }}>
+        {[
+          "Tiefe Entspannung & Loslassen",
+          "Energetische Klärung & Harmonisierung",
+          "Beruhigung des Nervensystems",
+          "Mehr innere Ruhe & Balance",
+          "Begleitung unabhängig vom Aufenthaltsort",
+        ].map(o => (
+          <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+            <span style={{ color: "#E9C38A", fontSize: "0.55rem", flexShrink: 0, marginTop: "0.45rem" }}>✦</span>
+            <span style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.6 }}>{o}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 45–60 Minuten</span>
+      </div>
+
+      <a href="#booking" style={{
+        display: "block", textAlign: "center",
+        padding: "1rem 2rem", borderRadius: 100,
+        background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+        color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
+        textDecoration: "none",
+        boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
+      }}>Jetzt buchen</a>
+    </div>
+  ),
   individuelles_seelenbild: (
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Individuelle Anfrage</p>
