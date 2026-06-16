@@ -1413,9 +1413,13 @@ const MODAL_CONTENT = {
         ))}
       </ul>
 
-      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "0.6rem" }}>
         <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
         <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 60–90 Minuten</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Investition in dich</span>
+        <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>88 €</span>
       </div>
 
       <a href="#booking" style={{
@@ -1460,9 +1464,13 @@ const MODAL_CONTENT = {
         ))}
       </ul>
 
-      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "0.6rem" }}>
         <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
-        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 45–60 Minuten</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 60–90 Minuten</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Investition in dich</span>
+        <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>111 €</span>
       </div>
 
       <a href="#booking" style={{
