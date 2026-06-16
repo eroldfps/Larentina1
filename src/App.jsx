@@ -698,7 +698,7 @@ function Hero() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.32 }}
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Btn dark>Jetzt </Btn>
+            <Btn dark>Jetzt Buchen </Btn>
             <Btn outline>Mehr erfahren</Btn>
           </motion.div>
 
