@@ -60,7 +60,7 @@ function ImgBox({ label = "Bild", aspect = "aspect-[3/4]", rounded = "rounded-2x
 
 function Tag({ children }) {
   return (
-    <span style={{ fontFamily: sans, fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C88880", display: "block", marginBottom: "0.75rem" }}>
+    <span style={{ fontFamily: sans, fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#C88880", display: "block", marginBottom: "0.75rem" }}>
       {children}
     </span>
   );
