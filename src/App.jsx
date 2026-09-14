@@ -1249,7 +1249,7 @@ function KontaktSection() {
                   <div key={r.label} style={{ display: "flex", gap: "0.9rem", marginBottom: "1.2rem", alignItems: "flex-start" }}>
                     <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>{r.icon}</span>
                     <div>
-                      <div style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.sage, marginBottom: "0.25rem" }}>{r.label}</div>
+                                            <div style={{ fontFamily: sans, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#C88880", marginBottom: "0.25rem" }}>{r.label}</div>
                       {r.link ? (
                         <a href={r.link} style={{ fontFamily: sans, fontSize: "0.92rem", color: C.dark, whiteSpace: "pre-line", textDecoration: "none", borderBottom: "1px dotted rgba(110,77,66,0.3)" }}>{r.val}</a>
                       ) : (
