@@ -1000,15 +1000,13 @@ function SeelenbilderSection() {
             </Reveal>
           ))}
         </div>
-        <Reveal>
+               <Reveal>
           <div style={{ textAlign: "center" }}>
-            {!showAll && (
-              <motion.a href="#" whileHover={{ scale: 1.03 }}
-                onClick={(e) => { e.preventDefault(); setShowAll(true); }}
-                style={{ display: "inline-block", padding: "0.9rem 2.4rem", borderRadius: 100, background: "#D8B06B", color: "#FFFFFF", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.04em", boxShadow: "0 10px 32px rgba(216,176,107,0.22)", cursor: "pointer" }}>
-                Mehr Seelenbilder ansehen
-              </motion.a>
-            )}
+            <motion.a href="#" whileHover={{ scale: 1.03 }}
+              onClick={(e) => { e.preventDefault(); setShowAll(!showAll); }}
+              style={{ display: "inline-block", padding: "0.9rem 2.4rem", borderRadius: 100, background: "#D8B06B", color: "#FFFFFF", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.04em", boxShadow: "0 10px 32px rgba(216,176,107,0.22)", cursor: "pointer" }}>
+              {showAll ? "Weniger anzeigen" : "Mehr Seelenbilder ansehen"}
+            </motion.a>
           </div>
         </Reveal>
       </div>
