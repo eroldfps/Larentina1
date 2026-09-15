@@ -1285,7 +1285,7 @@ function KontaktSection() {
                     textDecoration: "none",
                     boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
                   }}>
-                    <img src={s.img} alt={s.label} style={{ width: 24, height: 24, objectFit: "contain" }} />
+                                        <img src={s.img} alt={s.label} style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", flexShrink: 0, objectFit: "contain", display: "block" }} />
                   </a>
                 ))}
               </div>
