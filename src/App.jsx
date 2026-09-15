@@ -1126,8 +1126,10 @@ function AboutSection() {
 
 function TestimonialsSection() {
   const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   const items = [
     { name: "Alexandra K. · Wien", tag: "Ganzheitliche Behandlung", text: "5 Sterne sind eindeutig zu wenig. Eine Sitzung bei Renata ist im wahrsten Sinne des Wortes Wellness für Körper, Geist und Seele! Meine Migräneattacken und Rückenschmerzen sind seit den regelmäßigen Behandlungen beinahe ganz verschwunden." },
+    { name: "", tag: "Energetische Begleitung", text: "Es war heute einfach unbeschreiblich wunderschön 🥰🔮✨\n\nDanke dir von ganzem Herzen für diese besondere und magische Zeit.\n\nMein Engel auf Erden 😇💫 Aber kein gewöhnlicher Engel. Du bist ein hypergalaktischer, wundervoller, einzigartiger, leuchtender Seelenengel.\n\nEigentlich müsste man für dich neue Worte erfinden, weil wunderschön, großartig oder fantastisch einfach nicht ausreichen 🥰\n\nDu bist phänomenal, sensationell, zauberhaft, kosmisch genial, herzallerliebst, außergewöhnlich und einfach UNIVERSUMSKLASSE 🌀🔮🌙\n\nDu hast so eine besondere Gabe und eine Energie, die man nicht wirklich in Worte packen kann. Man muss sie einfach erleben und fühlen 💝\n\nDanke für dein Strahlen, deine Wärme, deine Energie, deine wundervolle Art und dafür, dass du genauso bist, wie du bist.\n\nDu bist einfach nicht von dieser Welt! 👼" },
     { name: "Bea W.", tag: "Kabbala-Beratung", text: "Liebste Renata, es war eine tiefgehende Reise. Wegweiser, Wegöffnung und Bestätigung für die Zukunft. Herzliche Einladung an jede Seele, die ihren Weg verloren hat — geh auf diese Reise mit Renata, du wirst geführt, gefühlt und geliebt." },
     { name: "Joka S.", tag: "Kabbala-Lebensanalyse", text: "Ich bin beeindruckt von diesem magischen und intensiven Termin. In all den Jahren meiner psychischen Störung habe ich mich abgetrennt gefühlt. Der Termin mit Dir hat mich bestärkt, dass ich auf dem richtigen Weg bin. Danke, Danke, Danke." },
     { name: "Alexandra K. · Wien", tag: "Persönliche Begleitung", text: "Du hast mir mit deinem einfühlsamen, herzlichen, lehrenden aber nicht belehrenden Wesen geholfen, mein Potential zu erkennen. Seither freue ich mich immer, wenn ich zu dir kommen darf. Du bist ein besonderer Mensch — ich bin dankbar, dich zu kennen." },
@@ -1143,7 +1145,7 @@ function TestimonialsSection() {
             <H2 center>Was Frauen sagen</H2>
           </div>
         </Reveal>
-        <div style={{ position: "relative" }}>
+                <div style={{ position: "relative" }}>
           <AnimatePresence mode="wait">
             <motion.div key={active} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -1152,18 +1154,29 @@ function TestimonialsSection() {
                 <path d="M0 28L0 13C0 5.5 3.5 1.5 10.5 0L12 3.5C9 4.5 7 7 7 11L7 13L14 13L14 28Z" fill="#EBC8C3" opacity="0.55" />
                 <path d="M22 28L22 13C22 5.5 25.5 1.5 32.5 0L34 3.5C31 4.5 29 7 29 11L29 13L36 13L36 28Z" fill="#EBC8C3" opacity="0.55" />
               </svg>
-              <p style={{ fontFamily: serif, color: C.dark, fontSize: "clamp(1.1rem,2.2vw,1.3rem)", lineHeight: 1.72, fontStyle: "italic", maxWidth: 560, margin: "0 auto" }}>
+              <p style={{ fontFamily: serif, color: C.dark, fontSize: "clamp(1.1rem,2.2vw,1.3rem)", lineHeight: 1.72, fontStyle: "italic", maxWidth: 560, margin: "0 auto",
+                whiteSpace: "pre-line",
+                display: "-webkit-box",
+                WebkitLineClamp: expanded ? "unset" : 5,
+                WebkitBoxOrient: "vertical",
+                overflow: expanded ? "visible" : "hidden" }}>
                 "{items[active].text}"
               </p>
+              {items[active].text.length > 260 && (
+                <button onClick={() => setExpanded(!expanded)}
+                  style={{ marginTop: "0.75rem", background: "none", border: "none", cursor: "pointer", fontFamily: sans, fontSize: "0.78rem", color: C.sage, letterSpacing: "0.05em", textDecoration: "underline" }}>
+                  {expanded ? "Weniger anzeigen" : "Mehr anzeigen"}
+                </button>
+              )}
               <div style={{ marginTop: "1.75rem" }}>
-                <p style={{ fontFamily: sans, color: C.dark, fontSize: "0.88rem", fontWeight: 500 }}>{items[active].name}</p>
+                {items[active].name && <p style={{ fontFamily: sans, color: C.dark, fontSize: "0.88rem", fontWeight: 500 }}>{items[active].name}</p>}
                 <p style={{ fontFamily: sans, color: C.sage, fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4 }}>{items[active].tag}</p>
               </div>
             </motion.div>
           </AnimatePresence>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.65rem", marginTop: "1.75rem" }}>
             {items.map((_, i) => (
-              <button key={i} onClick={() => setActive(i)}
+              <button key={i} onClick={() => { setActive(i); setExpanded(false); }}
                 style={{ width: i === active ? 28 : 8, height: 8, borderRadius: 100, background: i === active ? C.sage : C.sand, border: "none", cursor: "pointer", transition: "all 0.3s" }} />
             ))}
           </div>
