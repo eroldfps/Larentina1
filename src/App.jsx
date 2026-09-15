@@ -1271,26 +1271,11 @@ function KontaktSection() {
                 ))}
               </div>
 
-                            <div style={{ display: "flex", gap: "0.75rem" }}>
+                                         <div style={{ display: "flex", gap: "0.75rem" }}>
                 {[
-                  { label: "Instagram", href: "#", icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="1.8">
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill={C.dark} stroke="none" />
-                    </svg>
-                  )},
-                  { label: "WhatsApp", href: "https://wa.me/436602346454", icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill={C.dark}>
-                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.44.79 3.06 1.2 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.82 14.03c-.24.68-1.19 1.24-1.95 1.4-.53.11-1.22.2-3.54-.76-2.97-1.23-4.88-4.24-5.03-4.44-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4.01.57.01.18 0 .43-.07.67.51.24.58.82 2.02.9 2.17.08.15.13.32.02.52-.1.2-.15.32-.3.5-.15.18-.3.38-.44.5-.15.13-.3.28-.13.55.17.28.77 1.27 1.66 2.05 1.14 1.02 2.1 1.34 2.38 1.49.28.15.44.13.6-.05.17-.18.72-.83.91-1.11.19-.28.38-.23.63-.14.26.1 1.63.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/>
-                    </svg>
-                  )},
-                  { label: "E-Mail", href: "mailto:larentina@gmx.at", icon: (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="1.8">
-                      <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
-                      <path d="M3 6l9 7 9-7" />
-                    </svg>
-                  )},
+                  { label: "Instagram", href: "#", img: "/instagram.png" },
+                  { label: "WhatsApp", href: "https://wa.me/436602346454", img: "/whatsapp.png" },
+                  { label: "E-Mail", href: "mailto:larentina@gmx.at", img: "/email.png" },
                 ].map(s => (
                   <a key={s.label} href={s.href} className="btn-shimmer" style={{
                     width: 50, height: 50, borderRadius: "50%",
@@ -1299,7 +1284,9 @@ function KontaktSection() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     textDecoration: "none",
                     boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
-                  }}>{s.icon}</a>
+                  }}>
+                    <img src={s.img} alt={s.label} style={{ width: 24, height: 24, objectFit: "contain" }} />
+                  </a>
                 ))}
               </div>
             </div>
