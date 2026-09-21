@@ -568,10 +568,23 @@ const FontStyle = () => (
         gap: 2rem !important;
         max-width: 580px !important;
       }
-      .hero-text-col > * { order: initial !important; margin-top: 0 !important; }
+            .hero-text-col > * { order: initial !important; margin-top: 0 !important; }
       .hero-text-col h1 {
         font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
         line-height: 1.08 !important;
+        margin-top: 0 !important;
+        text-shadow: none !important;
+      }
+      .hero-text-col p {
+        text-shadow: none !important;
+      }
+      .hero-text-col > *:nth-child(5) {
+        flex-direction: row !important;
+      }
+      .hero-text-col > *:nth-child(5) .btn-shimmer {
+        padding: 0.95rem 2.0rem !important;
+        font-size: 0.82rem !important;
+        flex: initial !important;
       }
       .hero-text-col p {
         font-size: 0.92rem !important;
