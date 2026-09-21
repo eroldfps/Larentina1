@@ -470,9 +470,9 @@ const FontStyle = () => (
     @media (min-width: 1024px) {
       .navbar-inner { flex-direction: row !important; padding: 0 3rem !important; }
     }
-    .hero-section-mobile {
+        .hero-section-mobile {
       min-height: auto !important;
-      padding-top: 110px !important;
+      padding-top: 85px !important;
       padding-bottom: 3rem !important;
     }
     .hero-section-mobile > div:last-child {
@@ -526,9 +526,11 @@ const FontStyle = () => (
       width: 64px !important;
       height: 64px !important;
     }
-    .hero-trust span {
-      font-size: 0.66rem !important;
+        .hero-trust span {
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
       letter-spacing: 0.04em !important;
+      color: #6F4D42 !important;
     }
     .hero-trust .hero-trust-divider {
       height: 38px !important;
