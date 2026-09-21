@@ -494,12 +494,13 @@ const FontStyle = () => (
     .hero-text-col > *:nth-child(4) { order: 5; }
     .hero-text-col > *:nth-child(6) { order: 6; margin-top: 1rem; }
 
-        .hero-text-col h1 {
+            .hero-text-col h1 {
       font-size: 2.1rem !important;
       line-height: 1.12 !important;
       letter-spacing: -0.01em !important;
       margin-top: 15rem !important;
       text-shadow: 0 2px 16px rgba(253,240,230,0.9), 0 1px 4px rgba(253,240,230,0.9);
+      text-align: center !important;
     }
         .hero-text-col p {
       font-size: 0.92rem !important;
