@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 const CALENDLY_LINKS = {
+  visionboard_workshop: "https://calendly.com/larentina/meine-workshops",
   kennenlerngespraech: "https://calendly.com/larentina/kennenlerngesprach",
   kernbegleitung: "https://calendly.com/larentina/golden-harmony-beauty",
   aromaoel: "https://calendly.com/larentina/neues-meeting",
@@ -847,7 +848,8 @@ function ProblemSection() {
 
 function ServicesSection() {
   const cards = [
-    { tag: "Golden Harmony Beauty", title: "Kosmetische behandlung", desc: "Nachhaltige, individuelle Begleitung für Frauen, die sich nach innerer Balance, emotionaler Klarheit und echter Veränderung sehnen — mit Herzwärme und professioneller Fachkompetenz.", outcomes: ["Innere Balance & Ruhe", "Emotionale Klarheit", "Neue Energie & Leichtigkeit", "Zurück zu sich selbst"], cta: "Mehr erfahren", highlight: false, modalType: "kernbegleitung" },
+    { tag: "Workshop", title: "Visionboard 2027", desc: "Ein besonderer Workshop-Nachmittag, um deinen Wünschen und Zukunftsvisionen kreativ Raum zu geben — mit Meditation, Gestaltung und wertvoller Zeit nur für dich.", outcomes: ["Klarheit über deine Ziele", "Kreative Gestaltung deines Visionboards", "Energetische Reinigung & Meditation", "Wohlfühlzeit in besonderer Atmosphäre"], cta: "Mehr erfahren", highlight: false, modalType: "visionboard_workshop" },
+    { tag: "Golden Harmony Beauty", title: "Ganzheitliche Schönheitspflege", desc: "Nachhaltige, individuelle Begleitung für Frauen, die sich nach innerer Balance, emotionaler Klarheit und echter Veränderung sehnen — mit Herzwärme und professioneller Fachkompetenz.", outcomes: ["Innere Balance & Ruhe", "Emotionale Klarheit", "Neue Energie & Leichtigkeit", "Zurück zu sich selbst"], cta: "Mehr erfahren", highlight: false, modalType: "kernbegleitung" },
     { tag: "Golden Aura Experience", title: "Fernbehandlung", desc: "Eine achtsame Begleitung über den Körper — mit hochwertigen Aromaölen, sanfter Berührung und tiefer Entspannung für Nervensystem, Körper und Seele.", outcomes: ["Tiefe Entspannung", "Nervensystem beruhigen", "Loslassen & Ankommen", "Körperliche Wärme"], cta: "Mehr erfahren", highlight: false, modalType: "aromaoel" },
     { tag: "Soul Journey ", title: "Seelenreise", desc: "Eine intuitive Seelenreise, die dich wieder mit deiner inneren Weisheit verbindet und dich zurück in Balance, Klarheit und Verbundenheit begleitet.", outcomes: ["Innere Klarheit & Orientierung", "Emotionale Balance", "Lösung energetischer Blockaden", "Mehr innere Ruhe & Verbundenheit"], cta: "Mehr erfahren", highlight: true, modalType: "soul_journey" },
     { tag: "Vital Balance & Soul Harmony", title: "Gesundheitsberatung & Vitalmessung", desc: "Ganzheitliche Gesundheitsberatung für mehr Balance, Energie und Wohlbefinden — mit individueller Begleitung und unterstützender Vitalmessung.", outcomes: ["Mehr Energie & Vitalität", "Innere Balance & Wohlbefinden", "Persönliche Klarheit", "Neue Impulse für Körper & Seele"], cta: "Mehr erfahren", highlight: false, modalType: "vital_balance" },
@@ -1271,7 +1273,7 @@ function KontaktSection() {
                 {[
                   { icon: "📍", label: "Adresse", val: "Karl-Pallinger-Straße 42/1\n2486 Pottendorf, Österreich" },
                   { icon: "📞", label: "Telefon", val: "0660 / 23 46 454", link: "tel:+436602346454" },
-                  { icon: "✉️", label: "E-Mail", val: "larentina@gmx.at", link: "mailto:larentina@gmx.at" },
+                  { icon: "✉️", label: "E-Mail", val: "info@larentina.com", link: "mailto:info@larentina.com" },
                 ].map(r => (
                   <div key={r.label} style={{ display: "flex", gap: "0.9rem", marginBottom: "1.2rem", alignItems: "flex-start" }}>
                     <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>{r.icon}</span>
@@ -1291,7 +1293,7 @@ function KontaktSection() {
                 {[
                   { label: "Instagram", href: "#", img: "/instagram.png" },
                   { label: "WhatsApp", href: "https://wa.me/436602346454", img: "/whatsapp.png" },
-                  { label: "E-Mail", href: "mailto:larentina@gmx.at", img: "/email.png" },
+                  { label: "E-Mail", href: "mailto:info@larentina.com", img: "/email.png" },
                 ].map(s => (
                   <a key={s.label} href={s.href} className="btn-shimmer" style={{
                     width: 50, height: 50, borderRadius: "50%",
@@ -1449,17 +1451,73 @@ function Footer() {
 }
 
 const MODAL_CONTENT = {
+    visionboard_workshop: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Workshop</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
+        Visionboard 2027
+      </h2>
+      <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.1rem", marginBottom: "1.5rem" }}>
+        Deine Träume. Deine Wünsche. Dein Weg.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Ein besonderer Workshop, um innezuhalten und dich ganz bewusst deinen Wünschen, Zielen und deiner Zukunftsvision zu widmen.
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1.8rem" }}>
+        Mit Bildern, Worten, Affirmationen und persönlichen Symbolen entsteht Schritt für Schritt dein ganz individuelles Visionboard — eine tägliche Erinnerung daran, wohin dein Herz dich führen möchte.
+      </p>
+
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Was dich erwartet</p>
+      <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.8rem" }}>
+        {[
+          "Gemeinsames Gestalten deines persönlichen Visionboards",
+          "Energetische Reinigung zum Ankommen",
+          "Meditation & bewusste Ausrichtung auf deine Zukunft",
+          "Kartenbotschaften, Affirmationen & Mantras",
+          "Wohlfühltee, kleine Köstlichkeiten & gemeinsames Abendessen",
+          "Eine kleine persönliche Überraschung zum Mitnehmen",
+        ].map(o => (
+          <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+            <span style={{ color: "#E9C38A", fontSize: "0.55rem", flexShrink: 0, marginTop: "0.45rem" }}>✦</span>
+            <span style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.6 }}>{o}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "0.6rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>ca. 15:30–21:00 Uhr</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "0.6rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Gruppengröße</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>Max. 10 Teilnehmerinnen</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Investition</span>
+        <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>55 € (Gruppe ab 5) · 99 € Einzelbegleitung</span>
+      </div>
+
+      <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("visionboard_workshop"); }} style={{
+        display: "block", textAlign: "center",
+        padding: "1rem 2rem", borderRadius: 100,
+        background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+        color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
+        textDecoration: "none",
+        boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
+      }}>Jetzt buchen</a>
+    </div>
+  ),
   kernbegleitung: (
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Golden Harmony Beauty</p>
       <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
-        Kosmetische Behandlung
+        Ganzheitliche Schönheitspflege
       </h2>
       <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.1rem", marginBottom: "1.5rem" }}>
         Natürliche Schönheit · Innere Balance
       </p>
       <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: "1rem" }}>
-        Eine ganzheitliche kosmetische Behandlung, die deine natürliche Ausstrahlung sanft zum Strahlen bringt.
+        Eine ganzheitliche Ganzheitliche Schönheitspflege, die deine natürliche Ausstrahlung sanft zum Strahlen bringt.
       </p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1.8rem" }}>
         Mit hochwertigen Produkten, achtsamer Berührung und einer wohltuenden Atmosphäre wird deine Haut gepflegt — gleichzeitig darf dein Nervensystem zur Ruhe kommen und neue Frische in Körper und Geist einkehren.
@@ -1591,7 +1649,7 @@ const MODAL_CONTENT = {
           style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: "#6F4D42", outline: "none", resize: "vertical" }} />
       </div>
 
-      <a href="mailto:larentina@gmx.at?subject=Anfrage individuelles Seelenbild" style={{
+      <a href="mailto:info@larentina.com?subject=Anfrage individuelles Seelenbild" style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1631,7 +1689,7 @@ const MODAL_CONTENT = {
           style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: "#6F4D42", outline: "none", resize: "vertical" }} />
       </div>
 
-      <a href="mailto:larentina@gmx.at?subject=Kaufanfrage Seelenbild" style={{
+      <a href="mailto:info@larentina.com?subject=Kaufanfrage Seelenbild" style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
