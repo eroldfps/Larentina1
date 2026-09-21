@@ -1350,7 +1350,7 @@ function KontaktSection() {
                     style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: C.dark, outline: "none", resize: "vertical" }} />
                 </div>
 
-                <a href="mailto:larentina@gmx.at" className="btn-shimmer" style={{
+                <a href="mailto:info@larentina.com" className="btn-shimmer" style={{
                   display: "block", textAlign: "center",
                   padding: "1rem 2rem", borderRadius: 100,
                   background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1401,10 +1401,28 @@ function FinalCTA() {
 
 function Footer() {
   const year = new Date().getFullYear();
-  const cols = [
-    { title: "Navigation", links: ["Home","Begleitung","Über mich","Seelenbilder","Erfahrungen","Kontakt"] },
-    { title: "Angebote", links: ["Ganzheitliche Begleitung","Aromaöl-Streichung","Seelenreise & Impulse","Seelenbilder","Feng Shui"] },
-    { title: "Rechtliches", links: ["Impressum","Datenschutz","AGB","Widerrufsbelehrung"] },
+    const cols = [
+    { title: "Navigation", links: [
+      { label: "Home", href: "#" },
+      { label: "Begleitung", href: "#services" },
+      { label: "Über mich", href: "#about" },
+      { label: "Seelenbilder", href: "#seelenbilder" },
+      { label: "Erfahrungen", href: "#erfahrungen" },
+      { label: "Kontakt", href: "#kontakt" },
+    ]},
+    { title: "Angebote", links: [
+      { label: "Golden Harmony Beauty", href: "#services" },
+      { label: "Golden Aura Experience", href: "#services" },
+      { label: "Soul Journey", href: "#services" },
+      { label: "Seelenbilder", href: "#seelenbilder" },
+      { label: "Visionboard Workshop", href: "#services" },
+    ]},
+    { title: "Rechtliches", links: [
+      { label: "Impressum", href: "#" },
+      { label: "Datenschutz", href: "#" },
+      { label: "AGB", href: "#" },
+      { label: "Widerrufsbelehrung", href: "#" },
+    ]},
   ];
   return (
     <footer style={{ background: "#3D2820", borderTop: `1px solid rgba(214,176,106,0.12)` }}>
@@ -1424,17 +1442,17 @@ function Footer() {
           {cols.map(col => (
             <div key={col.title}>
               <p style={{ fontFamily: sans, fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.cream, marginBottom: "1rem" }}>{col.title}</p>
-              <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                            <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {col.links.map(l => (
-                  <li key={l}><a href="#" style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem", textDecoration: "none" }}
-                    onMouseEnter={e => e.target.style.color = C.sand} onMouseLeave={e => e.target.style.color = C.muted}>{l}</a></li>
+                  <li key={l.label}><a href={l.href} style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem", textDecoration: "none" }}
+                    onMouseEnter={e => e.target.style.color = C.sand} onMouseLeave={e => e.target.style.color = C.muted}>{l.label}</a></li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: "1.5rem", padding: "2rem 0", borderTop: `1px solid rgba(214,176,106,0.12)`, marginBottom: "2rem" }}>
-          {[{ l: "Email", v: "larentina@gmx.at" },{ l: "Telefon", v: "0660 / 23 46 454" },{ l: "Sprechzeiten", v: "Nach Vereinbarung" },{ l: "Standort", v: "Karl-Pallinger-Straße 42/1<br>2486 Pottendorf, Österreich" }].map(c => (
+          {[{ l: "Email", v: "info@larentina.com" },{ l: "Telefon", v: "0660 / 23 46 454" },{ l: "Sprechzeiten", v: "Nach Vereinbarung" },{ l: "Standort", v: "Karl-Pallinger-Straße 42/1<br>2486 Pottendorf, Österreich" }].map(c => (
             <div key={c.l}>
               <p style={{ fontFamily: sans, color: C.sage, fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 4 }}>{c.l}</p>
               <p style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem" }} dangerouslySetInnerHTML={{ __html: c.v }} />
