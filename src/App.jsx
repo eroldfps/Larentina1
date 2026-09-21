@@ -1313,7 +1313,7 @@ function KontaktSection() {
                     boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
                     overflow: "hidden",
                   }}>
-                                        <img src={s.img} alt={s.label} style={{ width: "60%", height: "60%", objectFit: "contain", display: "block" }} />
+                                                            <img src={s.img} alt={s.label} style={{ width: "60%", height: "60%", minWidth: "30px", minHeight: "30px", flexShrink: 0, objectFit: "contain", display: "block" }} />
                   </a>
                   </a>
                 ))}
