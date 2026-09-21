@@ -1417,11 +1417,11 @@ function Footer() {
       { label: "Seelenbilder", href: "#seelenbilder" },
       { label: "Visionboard Workshop", href: "#services" },
     ]},
-    { title: "Rechtliches", links: [
-      { label: "Impressum", href: "#" },
-      { label: "Datenschutz", href: "#" },
-      { label: "AGB", href: "#" },
-      { label: "Widerrufsbelehrung", href: "#" },
+        { title: "Rechtliches", links: [
+      { label: "Impressum", href: "#", modal: "impressum" },
+      { label: "Datenschutz", href: "#", modal: "datenschutz" },
+      { label: "AGB", href: "#", modal: "agb" },
+      { label: "Widerrufsbelehrung", href: "#", modal: "widerruf" },
     ]},
   ];
   return (
@@ -1442,9 +1442,11 @@ function Footer() {
           {cols.map(col => (
             <div key={col.title}>
               <p style={{ fontFamily: sans, fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.cream, marginBottom: "1rem" }}>{col.title}</p>
-                            <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                                          <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {col.links.map(l => (
-                  <li key={l.label}><a href={l.href} style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem", textDecoration: "none" }}
+                  <li key={l.label}><a href={l.href}
+                    onClick={(e) => { if (l.modal) { e.preventDefault(); window.dispatchEvent(new CustomEvent("openModal", { detail: { type: l.modal } })); } }}
+                    style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem", textDecoration: "none", cursor: l.modal ? "pointer" : "default" }}
                     onMouseEnter={e => e.target.style.color = C.sand} onMouseLeave={e => e.target.style.color = C.muted}>{l.label}</a></li>
                 ))}
               </ul>
@@ -1469,6 +1471,91 @@ function Footer() {
 }
 
 const MODAL_CONTENT = {
+    impressum: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Rechtliches</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "1.5rem" }}>Impressum</h2>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.9rem", lineHeight: 1.9, marginBottom: "1rem" }}>
+        <strong>Larentina Seelenfluss</strong><br />
+        Renata Sabau<br />
+        Karl-Pallinger-Straße 42/1<br />
+        2486 Pottendorf, Österreich
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "1rem" }}>
+        Telefon: 0660 / 23 46 454<br />
+        E-Mail: info@larentina.com
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "1rem" }}>
+        Gewerbeart: [Gewerbeschein-Bezeichnung eintragen]<br />
+        Gewerbebehörde: [zuständige Bezirkshauptmannschaft]<br />
+        UID-Nummer: [falls vorhanden]
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.82rem", lineHeight: 1.8 }}>
+        Diese Website dient der Information über die angebotenen Leistungen und ersetzt keine medizinische Diagnose oder Behandlung.
+      </p>
+    </div>
+  ),
+  datenschutz: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Rechtliches</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "1.5rem" }}>Datenschutzerklärung</h2>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Der Schutz deiner persönlichen Daten ist uns wichtig. Diese Website erhebt personenbezogene Daten nur, wenn du sie uns freiwillig zur Verfügung stellst, z. B. über das Kontaktformular oder bei der Terminbuchung.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginTop: "1.2rem", marginBottom: "0.5rem" }}>Kontaktformular</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Bei Nutzung des Kontaktformulars werden die eingegebenen Daten (Name, E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung deiner Anfrage verwendet und nicht an Dritte weitergegeben.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginTop: "1.2rem", marginBottom: "0.5rem" }}>Terminbuchung (Calendly)</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Für die Terminbuchung nutzen wir den Dienst Calendly. Dabei werden die von dir eingegebenen Daten (Name, E-Mail, gewählter Termin) an Calendly übermittelt und dort gemäß deren Datenschutzrichtlinie verarbeitet.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginTop: "1.2rem", marginBottom: "0.5rem" }}>Deine Rechte</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85 }}>
+        Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner gespeicherten Daten. Kontaktiere uns dazu einfach unter info@larentina.com.
+      </p>
+    </div>
+  ),
+  agb: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Rechtliches</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "1.5rem" }}>Allgemeine Geschäftsbedingungen</h2>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>1. Geltungsbereich</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Diese AGB gelten für alle Leistungen von Larentina Seelenfluss, gebucht über diese Website oder direkt vereinbart.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>2. Terminvereinbarung</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Termine werden online über Calendly oder persönlich vereinbart. Eine Terminbuchung ist verbindlich.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>3. Absage & Stornierung</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Termine können bis 24 Stunden vor dem vereinbarten Termin kostenfrei storniert oder verschoben werden. Bei späterer Absage oder Nichterscheinen kann eine Ausfallgebühr verrechnet werden.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>4. Haftungsausschluss</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85 }}>
+        Alle Angebote dienen der ganzheitlichen Begleitung und ersetzen keine medizinische oder psychotherapeutische Behandlung. Bei gesundheitlichen Beschwerden konsultiere bitte einen Arzt.
+      </p>
+    </div>
+  ),
+  widerruf: (
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Rechtliches</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "1.5rem" }}>Widerrufsbelehrung</h2>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>Widerrufsrecht</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Du hast das Recht, innerhalb von 14 Tagen ohne Angabe von Gründen eine gebuchte Leistung zu widerrufen. Die Widerrufsfrist beginnt mit dem Tag der Terminbuchung.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>Ausübung des Widerrufs</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Um dein Widerrufsrecht auszuüben, kontaktiere uns unter info@larentina.com mit einer eindeutigen Erklärung.
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>Ausnahme</p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85 }}>
+        Das Widerrufsrecht erlischt vorzeitig, wenn die Leistung bereits vollständig erbracht wurde und du der sofortigen Ausführung ausdrücklich zugestimmt hast.
+      </p>
+    </div>
+  ),
     visionboard_workshop: (
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Workshop</p>
