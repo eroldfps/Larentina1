@@ -1,4 +1,20 @@
 import { useState, useEffect, useRef } from "react";
+const CALENDLY_LINKS = {
+  kennenlerngespraech: "https://calendly.com/larentina/kennenlerngesprach",
+  kernbegleitung: "https://calendly.com/larentina/golden-harmony-beauty",
+  aromaoel: "https://calendly.com/larentina/neues-meeting",
+  soul_journey: "https://calendly.com/larentina/soul-journey-seelenreise",
+  vital_balance: "https://calendly.com/larentina/soul-harmony-vitalbalance",
+  golden_space: "https://calendly.com/larentina/neues-meeting-1",
+  seelenbilder: "https://calendly.com/larentina/seelenbilder",
+};
+
+function openCalendly(key) {
+  const url = CALENDLY_LINKS[key];
+  if (url && window.Calendly) {
+    window.Calendly.initPopupWidget({ url });
+  }
+}
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
 // ─── TOKENS v13 — Larentina · Sacred Sanctuary Edition ─────────────────────
@@ -901,8 +917,8 @@ function ServicesSection() {
                         style={{ display: "inline-block", padding: "0.75rem 1.8rem", borderRadius: 100, fontFamily: sans, fontSize: "0.8rem", background: card.highlight ? C.cream : C.dark, color: card.highlight ? C.dark : C.bg, letterSpacing: "0.04em", transition: "all 0.25s" }}>
                         {card.cta}
                       </motion.a>
-                      {card.modalType && (
-                        <motion.a href="#booking" whileHover={{ y: -2 }} className="btn-shimmer"
+                                            {card.modalType && (
+                        <motion.a href="#" onClick={(e) => { e.preventDefault(); openCalendly(card.modalType); }} whileHover={{ y: -2 }} className="btn-shimmer"
                           style={{ display: "inline-block", padding: "0.75rem 1.8rem", borderRadius: 100, fontFamily: sans, fontSize: "0.8rem", background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)", color: "#FDF6F2", letterSpacing: "0.04em", boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 6px 22px rgba(217,154,147,0.30)", transition: "all 0.25s" }}>
                           Jetzt buchen
                         </motion.a>
@@ -1285,7 +1301,17 @@ function KontaktSection() {
                     textDecoration: "none",
                     boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
                   }}>
-                                        <img src={s.img} alt={s.label} style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", flexShrink: 0, objectFit: "contain", display: "block" }} />
+                                                                            <a key={s.label} href={s.href} className="btn-shimmer" style={{
+                    width: 50, height: 50, borderRadius: "50%",
+                    background: "rgba(253,240,230,0.9)",
+                    border: "1px solid rgba(233,195,138,0.55)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    textDecoration: "none",
+                    boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
+                    overflow: "hidden",
+                  }}>
+                    <img src={s.img} alt={s.label} style={{ width: "100%", height: "100%", minWidth: "50px", minHeight: "50px", flexShrink: 0, objectFit: "cover", transform: "scale(1.6)", display: "block" }} />
+                  </a>
                   </a>
                 ))}
               </div>
@@ -1464,14 +1490,14 @@ const MODAL_CONTENT = {
         <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>88 €</span>
       </div>
 
-      <a href="#booking" style={{
-        display: "block", textAlign: "center",
-        padding: "1rem 2rem", borderRadius: 100,
-        background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
-        color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
-        textDecoration: "none",
-        boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
-      }}>Jetzt buchen</a>
+      <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("kernbegleitung"); }} style={{
+  display: "block", textAlign: "center",
+  padding: "1rem 2rem", borderRadius: 100,
+  background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+  color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
+  textDecoration: "none",
+  boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
+}}>Jetzt buchen</a>
     </div>
   ),
   aromaoel: (
@@ -1515,7 +1541,7 @@ const MODAL_CONTENT = {
         <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>111 €</span>
       </div>
 
-      <a href="#booking" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("aromaoel"); }} style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1683,7 +1709,7 @@ const MODAL_CONTENT = {
         <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>255 €</span>
       </div>
 
-      <a href="#booking" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("golden_space"); }} style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1759,7 +1785,7 @@ const MODAL_CONTENT = {
         <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>89 €</span>
       </div>
 
-      <a href="#booking" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("vital_balance"); }} style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1834,7 +1860,7 @@ const MODAL_CONTENT = {
         <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>155 €</span>
       </div>
 
-      <a href="#booking" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("soul_journey"); }} style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -2090,7 +2116,7 @@ const MODAL_CONTENT = {
           </div>
         ))}
       </div>
-      <a href="mailto:hallo@larentina.de" style={{
+            <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("kennenlerngespraech"); }} style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
