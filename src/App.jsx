@@ -494,17 +494,20 @@ const FontStyle = () => (
     .hero-text-col > *:nth-child(4) { order: 5; }
     .hero-text-col > *:nth-child(6) { order: 6; margin-top: 1rem; }
 
-    .hero-text-col h1 {
-      font-size: 2.4rem !important;
+        .hero-text-col h1 {
+      font-size: 2.1rem !important;
       line-height: 1.12 !important;
       letter-spacing: -0.01em !important;
+      margin-top: 15rem !important;
+      text-shadow: 0 2px 16px rgba(253,240,230,0.9), 0 1px 4px rgba(253,240,230,0.9);
     }
-    .hero-text-col p {
+        .hero-text-col p {
       font-size: 0.92rem !important;
       line-height: 1.75 !important;
       max-width: 100% !important;
       color: #6F4D42 !important;
       opacity: 0.85;
+      text-shadow: 0 2px 12px rgba(253,240,230,0.85);
     }
     .hero-trust {
       gap: 0 !important;
@@ -526,9 +529,22 @@ const FontStyle = () => (
       height: 38px !important;
       margin: 0 0.3rem !important;
     }
+        .hero-text-col > *:nth-child(5) {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 0.6rem !important;
+    }
+    .hero-text-col > *:nth-child(5) .btn-shimmer {
+      padding: 0.7rem 1.1rem !important;
+      font-size: 0.68rem !important;
+      flex: 1 1 auto !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+    }
     .btn-shimmer {
-      padding: 0.95rem 1.6rem !important;
-      font-size: 0.78rem !important;
+      padding: 0.95rem 1.6rem;
+      font-size: 0.78rem;
     }
 
     /* ═══ Video Switcher Mobile/Desktop ═══ */
