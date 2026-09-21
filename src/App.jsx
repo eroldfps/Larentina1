@@ -311,9 +311,10 @@ const FontStyle = () => (
     html{scroll-behavior:smooth}
     body{background:#FDF0E6;color:#6F4D42}
     ::selection{background:#D89A9333;color:#6F4D42}
-    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar{width:8px}
     ::-webkit-scrollbar-track{background:#FDF0E6}
-    ::-webkit-scrollbar-thumb{background:#E9C38A66;border-radius:3px}
+    ::-webkit-scrollbar-thumb{background:#D89A93;border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:#C88880}
     a{text-decoration:none;color:inherit}
     button{appearance:none;-webkit-appearance:none}
 
@@ -1312,7 +1313,7 @@ function KontaktSection() {
                     boxShadow: "0 4px 18px rgba(217,154,147,0.10)",
                     overflow: "hidden",
                   }}>
-                    <img src={s.img} alt={s.label} style={{ width: "100%", height: "100%", minWidth: "50px", minHeight: "50px", flexShrink: 0, objectFit: "cover", transform: "scale(1.6)", display: "block" }} />
+                                        <img src={s.img} alt={s.label} style={{ width: "60%", height: "60%", objectFit: "contain", display: "block" }} />
                   </a>
                   </a>
                 ))}
@@ -1486,9 +1487,9 @@ const MODAL_CONTENT = {
         E-Mail: info@larentina.com
       </p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "1rem" }}>
-        Gewerbeart: [Gewerbeschein-Bezeichnung eintragen]<br />
-        Gewerbebehörde: [zuständige Bezirkshauptmannschaft]<br />
-        UID-Nummer: [falls vorhanden]
+        Gewerbeart: Einzelunternehmerin<br />
+        Gewerbebehörde: Bezirkshauptmannschaft Baden<br />
+        
       </p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.82rem", lineHeight: 1.8 }}>
         Diese Website dient der Information über die angebotenen Leistungen und ersetzt keine medizinische Diagnose oder Behandlung.
