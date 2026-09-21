@@ -502,6 +502,10 @@ const FontStyle = () => (
       text-shadow: 0 2px 16px rgba(253,240,230,0.9), 0 1px 4px rgba(253,240,230,0.9);
       text-align: center !important;
     }
+          .hero-text-col > *:nth-child(3) {
+      display: flex !important;
+      justify-content: center !important;
+    }
         .hero-text-col p {
       font-size: 0.92rem !important;
       line-height: 1.75 !important;
