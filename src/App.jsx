@@ -1131,8 +1131,8 @@ function AboutSection() {
             <div className="w-full max-w-sm shadow-xl" style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "3/4" }}>
               <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
-            <div style={{
-              position: "absolute", top: "-2rem", left: "-1.5rem",
+                        <div style={{
+              position: "absolute", top: "-2rem", left: "-3.5rem",
               width: "40%", aspectRatio: "3/4",
               borderRadius: 18, overflow: "hidden",
               border: "4px solid #FDF0E6",
@@ -1339,7 +1339,7 @@ function KontaktSection() {
                 {[
                   { icon: "📍", label: "Adresse", val: "Karl-Pallinger-Straße 42/1\n2486 Pottendorf, Österreich" },
                   { icon: "📞", label: "Telefon", val: "0660 / 23 46 454", link: "tel:+436602346454" },
-                  { icon: "✉️", label: "E-Mail", val: "info@larentina.com", link: "mailto:info@larentina.com" },
+                  { icon: "✉️", label: "E-Mail", val: "larentina.seelenfluss1@gmail.com", link: "mailto:larentina.seelenfluss1@gmail.com" },
                 ].map(r => (
                   <div key={r.label} style={{ display: "flex", gap: "0.9rem", marginBottom: "1.2rem", alignItems: "flex-start" }}>
                     <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>{r.icon}</span>
@@ -1359,7 +1359,7 @@ function KontaktSection() {
                 {[
                   { label: "Instagram", href: "#", img: "/instagram.png" },
                   { label: "WhatsApp", href: "https://wa.me/436602346454", img: "/whatsapp.png" },
-                  { label: "E-Mail", href: "mailto:info@larentina.com", img: "/email.png" },
+                  { label: "E-Mail", href: "mailto:larentina.seelenfluss1@gmail.com", img: "/email.png" },
                 ].map(s => (
                   <a key={s.label} href={s.href} className="btn-shimmer" style={{
                     width: 50, height: 50, borderRadius: "50%",
@@ -1416,7 +1416,7 @@ function KontaktSection() {
                     style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: C.dark, outline: "none", resize: "vertical" }} />
                 </div>
 
-                <a href="mailto:info@larentina.com" className="btn-shimmer" style={{
+                <a href="mailto:larentina.seelenfluss1@gmail.com" className="btn-shimmer" style={{
                   display: "block", textAlign: "center",
                   padding: "1rem 2rem", borderRadius: 100,
                   background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1626,7 +1626,7 @@ function Footer() {
           ))}
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: "1.5rem", padding: "2rem 0", borderTop: `1px solid rgba(214,176,106,0.12)`, marginBottom: "2rem" }}>
-          {[{ l: "Email", v: "info@larentina.com" },{ l: "Telefon", v: "0660 / 23 46 454" },{ l: "Sprechzeiten", v: "Nach Vereinbarung" },{ l: "Standort", v: "Karl-Pallinger-Straße 42/1<br>2486 Pottendorf, Österreich" }].map(c => (
+          {[{ l: "Email", v: "larentina.seelenfluss1@gmail.com" },{ l: "Telefon", v: "0660 / 23 46 454" },{ l: "Sprechzeiten", v: "Nach Vereinbarung" },{ l: "Standort", v: "Karl-Pallinger-Straße 42/1<br>2486 Pottendorf, Österreich" }].map(c => (
             <div key={c.l}>
               <p style={{ fontFamily: sans, color: C.sage, fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 4 }}>{c.l}</p>
               <p style={{ fontFamily: sans, color: C.muted, fontSize: "0.82rem" }} dangerouslySetInnerHTML={{ __html: c.v }} />
@@ -1655,7 +1655,7 @@ const MODAL_CONTENT = {
       </p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "1rem" }}>
         Telefon: 0660 / 23 46 454<br />
-        E-Mail: info@larentina.com
+        E-Mail: larentina.seelenfluss1@gmail.com
       </p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "1rem" }}>
         Gewerbeart: Einzelunternehmerin<br />
@@ -1684,7 +1684,7 @@ const MODAL_CONTENT = {
       </p>
       <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginTop: "1.2rem", marginBottom: "0.5rem" }}>Deine Rechte</p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85 }}>
-        Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner gespeicherten Daten. Kontaktiere uns dazu einfach unter info@larentina.com.
+        Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner gespeicherten Daten. Kontaktiere uns dazu einfach unter larentina.seelenfluss1@gmail.com.
       </p>
     </div>
   ),
@@ -1720,7 +1720,7 @@ const MODAL_CONTENT = {
       </p>
       <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>Ausübung des Widerrufs</p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "1rem" }}>
-        Um dein Widerrufsrecht auszuüben, kontaktiere uns unter info@larentina.com mit einer eindeutigen Erklärung.
+        Um dein Widerrufsrecht auszuüben, kontaktiere uns unter larentina.seelenfluss1@gmail.com mit einer eindeutigen Erklärung.
       </p>
       <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", fontWeight: 500, marginBottom: "0.5rem" }}>Ausnahme</p>
       <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.85 }}>
@@ -1926,7 +1926,7 @@ const MODAL_CONTENT = {
           style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: "#6F4D42", outline: "none", resize: "vertical" }} />
       </div>
 
-      <a href="mailto:info@larentina.com?subject=Anfrage individuelles Seelenbild" style={{
+      <a href="mailto:larentina.seelenfluss1@gmail.com?subject=Anfrage individuelles Seelenbild" style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
@@ -1966,7 +1966,7 @@ const MODAL_CONTENT = {
           style={{ width: "100%", padding: "0.8rem 1rem", borderRadius: 12, border: "1px solid rgba(233,195,138,0.35)", background: "rgba(253,240,230,0.7)", fontFamily: sans, fontSize: "0.9rem", color: "#6F4D42", outline: "none", resize: "vertical" }} />
       </div>
 
-      <a href="mailto:info@larentina.com?subject=Kaufanfrage Seelenbild" style={{
+      <a href="mailto:larentina.seelenfluss1@gmail.com?subject=Kaufanfrage Seelenbild" style={{
         display: "block", textAlign: "center",
         padding: "1rem 2rem", borderRadius: 100,
         background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
