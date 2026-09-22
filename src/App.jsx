@@ -1407,7 +1407,45 @@ function KontaktSection() {
   );
 }
 
-function FinalCTA() {
+function NewsletterSection() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: Newsletter-Formular-URL hier einfügen, sobald verfügbar
+    setSubmitted(true);
+  };
+
+  return (
+    <section style={{ background: "#FBE5D3", padding: "5rem 0" }}>
+      <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 2rem", textAlign: "center" }}>
+        <Reveal>
+          <Tag>Newsletter</Tag>
+          <H2 center>Bleib in Verbindung</H2>
+          <div style={{ maxWidth: 480, margin: "1rem auto 1.8rem" }}>
+            <Body center>Regelmäßige Impulse zu Angeboten, ganzheitlicher Gesundheit und wohltuenden Rezepten — direkt in dein Postfach.</Body>
+          </div>
+          {!submitted ? (
+            <form onSubmit={handleSubmit} style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <input type="email" required placeholder="Deine E-Mail-Adresse" value={email} onChange={e => setEmail(e.target.value)}
+                style={{ padding: "0.9rem 1.4rem", borderRadius: 100, border: "1px solid rgba(233,195,138,0.45)", background: "rgba(253,240,230,0.85)", fontFamily: sans, fontSize: "0.88rem", color: C.dark, outline: "none", minWidth: 260, flex: "1 1 260px" }} />
+              <button type="submit" className="btn-shimmer" style={{
+                padding: "0.9rem 2rem", borderRadius: 100, border: "none", cursor: "pointer",
+                background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+                color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.06em",
+                boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 6px 22px rgba(217,154,147,0.30)",
+              }}>Anmelden</button>
+            </form>
+          ) : (
+            <p style={{ fontFamily: serif, color: C.sage, fontSize: "1.1rem", fontStyle: "italic" }}>Danke für deine Anmeldung! 💛</p>
+          )}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
   return (
     <section style={{ background: `linear-gradient(155deg, #FDF0E6 0%, #FBE5D3 50%, #F8DCCB 100%)`, padding: "7rem 0", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 28% 38%, rgba(235,200,195,0.22), transparent 55%), radial-gradient(ellipse at 72% 65%, rgba(216,176,107,0.12), transparent 52%)` }} />
@@ -2355,6 +2393,7 @@ export default function App() {
         <TestimonialsSection />
         <FAQSection />
         <KontaktSection />
+        <NewsletterSection />
         <FinalCTA />
       </main>
       <Footer />
