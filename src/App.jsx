@@ -93,7 +93,7 @@ function H2({ children, light = false, center = false }) {
 
 function Body({ children, center = false, light = false, className = "" }) {
   return (
-    <p style={{ fontFamily: sans, color: light ? C.soft : C.muted, fontSize: "0.9rem", lineHeight: 1.82, textAlign: center ? "center" : undefined }} className={className}>
+    <p style={{ fontFamily: sans, color: light ? C.soft : C.muted, fontSize: "1.02rem", fontWeight: 500, lineHeight: 1.82, textAlign: center ? "center" : undefined }} className={className}>
       {children}
     </p>
   );
@@ -1127,7 +1127,7 @@ function AboutSection() {
           <Reveal delay={0.08}><H2>Mein Name ist Renata</H2></Reveal>
           <Reveal delay={0.12}>
             <p style={{ fontFamily: serif, color: "#C88880", fontSize: "3rem", lineHeight: 1.4, fontStyle: "italic", marginTop: "1rem", fontWeight: 500 }}>
-              Ganzheitliche Gesundheitsberaterin aus Berufung.
+              Mentorin für Gesundheit, Bewusstsein und Seelenkraft❤.
             </p>
           </Reveal>
           <Reveal delay={0.14}>
