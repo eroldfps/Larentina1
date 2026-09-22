@@ -1,4 +1,20 @@
 import { useState, useEffect, useRef } from "react";
+import { createClient } from "@sanity/client";
+import { PortableText } from "@portabletext/react";
+
+const sanityClient = createClient({
+  projectId: "tpy3ua1h",
+  dataset: "production",
+  apiVersion: "2024-01-01",
+  useCdn: true,
+});
+
+function urlForImage(source) {
+  if (!source?.asset?._ref) return "";
+  const ref = source.asset._ref;
+  const [, id, dims, ext] = ref.match(/^image-([a-f0-9]+)-(\d+x\d+)-(\w+)$/);
+  return `https://cdn.sanity.io/images/tpy3ua1h/production/${id}-${dims}.${ext}`;
+}
 const CALENDLY_LINKS = {
   visionboard_workshop: "https://calendly.com/larentina/meine-workshops",
   kennenlerngespraech: "https://calendly.com/larentina/kennenlerngesprach",
@@ -1407,6 +1423,73 @@ function KontaktSection() {
   );
 }
 
+function BlogSection() {
+  const [posts, setPosts] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "post"] | order(publishedAt desc){ _id, title, slug, category, excerpt, mainImage, publishedAt, body }`)
+      .then(data => { setPosts(data); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
+  if (!loading && posts.length === 0) return null;
+
+  return (
+    <section id="blog" style={{ background: "#FDF0E6", padding: "6rem 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem" }}>
+        <Reveal>
+          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+            <Tag>Blog</Tag>
+            <H2 center>Angebote, Gesundheit &amp; Rezepte</H2>
+            <div style={{ maxWidth: 500, margin: "1rem auto 0" }}>
+              <Body center>Impulse und Gedanken rund um ganzheitliches Wohlbefinden.</Body>
+            </div>
+          </div>
+        </Reveal>
+
+        {selected ? (
+          <Reveal>
+            <div style={{ maxWidth: 720, margin: "0 auto" }}>
+              <button onClick={() => setSelected(null)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: sans, color: C.sage, fontSize: "0.85rem", marginBottom: "1.5rem" }}>← Zurück zur Übersicht</button>
+              {selected.mainImage && (
+                <img src={urlForImage(selected.mainImage)} alt={selected.title} style={{ width: "100%", maxHeight: 380, objectFit: "cover", borderRadius: 20, marginBottom: "1.5rem" }} />
+              )}
+              <p style={{ fontFamily: sans, color: C.sage, fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.6rem" }}>{selected.category}</p>
+              <h2 style={{ fontFamily: serif, color: C.dark, fontSize: "2.1rem", fontWeight: 400, marginBottom: "1.5rem" }}>{selected.title}</h2>
+              <div style={{ fontFamily: sans, color: C.muted, fontSize: "0.95rem", lineHeight: 1.9 }}>
+                <PortableText value={selected.body} />
+              </div>
+            </div>
+          </Reveal>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "1.4rem" }}>
+            {posts.map((post, i) => (
+              <Reveal key={post._id} delay={i * 0.08}>
+                <motion.div whileHover={{ y: -5 }} onClick={() => setSelected(post)}
+                  style={{ borderRadius: 22, overflow: "hidden", background: "#FBE5D3", border: "1px solid rgba(233,195,138,0.22)", cursor: "pointer", boxShadow: "0 4px 24px rgba(217,154,147,0.10)", height: "100%", display: "flex", flexDirection: "column" }}>
+                  {post.mainImage && (
+                    <div style={{ aspectRatio: "16/10", overflow: "hidden" }}>
+                      <img src={urlForImage(post.mainImage)} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                  )}
+                  <div style={{ padding: "1.4rem 1.6rem" }}>
+                    <p style={{ fontFamily: sans, color: C.sage, fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.5rem" }}>{post.category}</p>
+                    <h3 style={{ fontFamily: serif, color: C.dark, fontSize: "1.2rem", fontWeight: 600, marginBottom: "0.5rem" }}>{post.title}</h3>
+                    <p style={{ fontFamily: sans, color: C.muted, fontSize: "0.85rem", lineHeight: 1.7 }}>{post.excerpt}</p>
+                  </div>
+                        </motion.div>
+              </Reveal>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -2393,6 +2476,7 @@ export default function App() {
         <AboutSection />
         <TestimonialsSection />
         <FAQSection />
+        <BlogSection />
         <KontaktSection />
         <NewsletterSection />
         <FinalCTA />
