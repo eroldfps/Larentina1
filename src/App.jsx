@@ -1126,10 +1126,23 @@ function AboutSection() {
       <Blob className="w-[420px] h-[420px] -bottom-16 -left-16" color={C.soft} opacity={0.35} />
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start", position: "relative", zIndex: 1 }}
         className="!grid-cols-1 lg:!grid-cols-2">
-        <Reveal>
+                <Reveal>
           <div style={{ position: "relative" }}>
             <div className="w-full max-w-sm shadow-xl" style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "3/4" }}>
               <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
+            <div style={{
+              position: "absolute", top: "-2rem", left: "-1.5rem",
+              width: "40%", aspectRatio: "3/4",
+              borderRadius: 18, overflow: "hidden",
+              border: "4px solid #FDF0E6",
+              boxShadow: "0 12px 32px rgba(110,77,66,0.20)",
+              zIndex: 2,
+            }} className="hidden md:block">
+              <video autoPlay muted loop playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+                <source src="/about-video.mp4" type="video/mp4" />
+              </video>
             </div>
             <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="hidden md:block"
