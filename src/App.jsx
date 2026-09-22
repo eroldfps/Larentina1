@@ -1439,13 +1439,14 @@ function NewsletterSection() {
             </form>
           ) : (
             <p style={{ fontFamily: serif, color: C.sage, fontSize: "1.1rem", fontStyle: "italic" }}>Danke für deine Anmeldung! 💛</p>
-          )}
+                    )}
         </Reveal>
       </div>
     </section>
   );
 }
 
+function FinalCTA() {
   return (
     <section style={{ background: `linear-gradient(155deg, #FDF0E6 0%, #FBE5D3 50%, #F8DCCB 100%)`, padding: "7rem 0", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 28% 38%, rgba(235,200,195,0.22), transparent 55%), radial-gradient(ellipse at 72% 65%, rgba(216,176,107,0.12), transparent 52%)` }} />
