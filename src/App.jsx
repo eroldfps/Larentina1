@@ -1132,7 +1132,7 @@ function AboutSection() {
               <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
                         <div style={{
-              position: "absolute", top: "-2rem", left: "-3.5rem",
+                            position: "absolute", top: "-2rem", left: "-7rem",
               width: "40%", aspectRatio: "3/4",
               borderRadius: 18, overflow: "hidden",
               border: "4px solid #FDF0E6",
