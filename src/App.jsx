@@ -486,6 +486,10 @@ const FontStyle = () => (
     @media (min-width: 1024px) {
       .navbar-inner { flex-direction: row !important; padding: 0 3rem !important; }
     }
+          #about-video-wrap { top: -1.2rem; left: -1rem; width: 38%; aspect-ratio: 3/4; }
+    @media (min-width: 1024px) {
+      #about-video-wrap { top: -2rem; left: -7rem; width: 40%; }
+    }
         .hero-section-mobile {
       min-height: auto !important;
       padding-top: 85px !important;
@@ -1131,14 +1135,13 @@ function AboutSection() {
             <div className="w-full max-w-sm shadow-xl" style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "3/4" }}>
               <img src="/selfie.png" alt="Portrait" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
-                        <div style={{
-                            position: "absolute", top: "-2rem", left: "-7rem",
-              width: "40%", aspectRatio: "3/4",
+                                                <div id="about-video-wrap" style={{
+              position: "absolute",
               borderRadius: 18, overflow: "hidden",
               border: "4px solid #FDF0E6",
               boxShadow: "0 12px 32px rgba(110,77,66,0.20)",
               zIndex: 2,
-            }} className="hidden md:block">
+            }}>
               <video autoPlay muted loop playsInline
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
                 <source src="/about-video.mp4" type="video/mp4" />
