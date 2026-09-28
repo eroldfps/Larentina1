@@ -1220,6 +1220,7 @@ function TestimonialsSection() {
     { name: "Alexandra K. · Wien", tag: "Persönliche Begleitung", text: "Du hast mir mit deinem einfühlsamen, herzlichen, lehrenden aber nicht belehrenden Wesen geholfen, mein Potential zu erkennen. Seither freue ich mich immer, wenn ich zu dir kommen darf. Du bist ein besonderer Mensch — ich bin dankbar, dich zu kennen." },
     { name: "Renate-Maria W. · Wien", tag: "Körperbehandlung", text: "Danke liebe Renata für deine wundervolle Behandlung. Ich bin seither schmerzfrei im Nacken und LWS-Bereich. Ich bin wieder voller Energie und freue mich schon auf die nächste Behandlung. Vielen lieben Dank!" },
     { name: "Vera H.", tag: "Lebensanalyse", text: "Wow — so ein kraftvolles Bild! Diese Beratung hat mir so viel bewusst gemacht und vieles bestätigt. Ich werde immer wieder nachlesen, um mich zu erinnern. Herzlichen Dank für deine so wertvolle Beratung und Lebensanalyse." },
+    { name: "Esther", tag: "Ganzheitliche Begleitung", text: "Diese wundervolle Seele ist ein Engel auf Erden. Ihre Arbeit macht soviel! Es wirkt gleich aber auch Tage, Wochen, Monate nach was wir zusammen bearbeiten." },
   ];
   return (
     <section id="erfahrungen" style={{ background: `linear-gradient(160deg, #FDF0E6 0%, #FBE5D3 50%, #FDF0E6 100%)`, padding: "6rem 0" }}>
