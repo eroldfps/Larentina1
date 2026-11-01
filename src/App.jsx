@@ -911,6 +911,7 @@ function ServicesSection() {
     { tag: "Soul Journey ", title: "Seelenreise", desc: "Eine intuitive Seelenreise, die dich wieder mit deiner inneren Weisheit verbindet und dich zurück in Balance, Klarheit und Verbundenheit begleitet.", outcomes: ["Innere Klarheit & Orientierung", "Emotionale Balance", "Lösung energetischer Blockaden", "Mehr innere Ruhe & Verbundenheit"], cta: "Mehr erfahren", highlight: true, modalType: "soul_journey" },
     { tag: "Vital Balance & Soul Harmony", title: "Gesundheitsberatung & Vitalmessung", desc: "Ganzheitliche Gesundheitsberatung für mehr Balance, Energie und Wohlbefinden — mit individueller Begleitung und unterstützender Vitalmessung.", outcomes: ["Mehr Energie & Vitalität", "Innere Balance & Wohlbefinden", "Persönliche Klarheit", "Neue Impulse für Körper & Seele"], cta: "Mehr erfahren", highlight: false, modalType: "vital_balance" },
     { tag: "Golden Space Harmony", title: "Raum-Harmonisierung", desc: "Energetische Reinigung und Harmonisierung für Haus, Wohnung oder Praxisräume — für mehr Klarheit, Leichtigkeit und positive Energie.", outcomes: ["Energetische Raumreinigung", "Mehr Harmonie & Wohlbefinden", "Positive Energie & Leichtigkeit", "Ruhe & neue Klarheit"], cta: "Mehr erfahren", highlight: false, modalType: "golden_space" },
+        { tag: "Warm Soul Harmony", title: "Wärme- & Aromaritual", desc: "Ein liebevoll gestaltetes Ritual für tiefes Loslassen und innere Ruhe — mit wohltuender Wärme, sanften Düften und achtsamer Berührung.", outcomes: ["Körperliche Anspannung lösen", "Gedanken zur Ruhe bringen", "Geborgenheit & Wärme spüren", "Wertvolle Auszeit nur für dich"], cta: "Mehr erfahren", highlight: false, modalType: "warm_soul" },
     { tag: "Exklusiv · Einzigartig", title: "Seelenbilder", desc: "Intuitive Kunstwerke mit emotionaler Tiefe — geschaffen aus dem Inneren heraus. Kein Foto, kein Portrait — ein Bild deiner Seele.", outcomes: ["Individuell & einzigartig", "Emotional & tiefgründig", "Premium Kunstwerk", "Für immer"], cta: "Galerie entdecken", highlight: false, special: true },
   ];
   return (
@@ -1647,6 +1648,80 @@ function Footer() {
 }
 
 const MODAL_CONTENT = {
+      warm_soul: "https://calendly.com/larentina/neues-meeting-2",
+    <div>
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Warm Soul Harmony</p>
+      <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
+        Wärme- &amp; Aromaritual
+      </h2>
+      <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.1rem", marginBottom: "1.5rem" }}>
+        Dein Ritual für tiefes Loslassen und innere Ruhe
+      </p>
+      <p style={{ fontFamily: sans, color: "#6F4D42", fontSize: "0.95rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Manchmal braucht deine Seele keine Worte, sondern einfach einen Moment, in dem du nichts musst.
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1rem" }}>
+        Der Alltag fordert dich, die Gedanken kommen kaum zur Ruhe, und selbst in stillen Momenten fällt es schwer, wirklich abzuschalten. Genau dafür habe ich Warm Soul Harmony geschaffen: ein liebevoll gestaltetes Wärme- und Aromaritual, das dich einlädt, den Alltag hinter dir zu lassen und wieder ganz bei dir anzukommen.
+      </p>
+      <p style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.9rem", lineHeight: 1.85, marginBottom: "1.8rem" }}>
+        Du wirst von Kerzenlicht, ruhiger Musik und einem feinen Duft empfangen, bei einer Tasse warmem Kräutertee. Weiche, warme Kompressen umhüllen deinen Rücken, gefolgt von langsamen Aromaöl-Streichungen mit angenehm temperierten, hochwertigen Pflanzenölen. Ohne Gespräche, ohne Erwartungen, ohne etwas leisten zu müssen. Zum Abschluss bleibt Raum für Stille und bewusstes Nachspüren.
+      </p>
+
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Was dich erwartet</p>
+      <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.8rem" }}>
+        {[
+          "Körperliche und innere Anspannung loslassen",
+          "Das Nervensystem in ruhiger Umgebung zur Ruhe kommen lassen",
+          "Das Gedankenkarussell für einen Moment pausieren",
+          "Geborgenheit, Wärme und innere Ausgeglichenheit erleben",
+          "Den eigenen Körper wieder bewusster wahrnehmen",
+        ].map(o => (
+          <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+            <span style={{ color: "#E9C38A", fontSize: "0.55rem", flexShrink: 0, marginTop: "0.45rem" }}>✦</span>
+            <span style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.6 }}>{o}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Ideal für dich, wenn …</p>
+      <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.8rem" }}>
+        {[
+          "du im Alltag viel Verantwortung trägst und selten Zeit für dich findest",
+          "du dich angespannt, erschöpft oder innerlich unruhig fühlst",
+          "es dir schwerfällt, gedanklich abzuschalten",
+          "du dich nach Wärme und liebevoller Zuwendung sehnst",
+          "du einfach nur genießen möchtest, ohne Gespräch oder Coaching",
+        ].map(o => (
+          <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+            <span style={{ color: "#E9C38A", fontSize: "0.55rem", flexShrink: 0, marginTop: "0.45rem" }}>✦</span>
+            <span style={{ fontFamily: sans, color: "#9C7B6E", fontSize: "0.88rem", lineHeight: 1.6 }}>{o}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p style={{ fontFamily: serif, fontStyle: "italic", color: "#C88880", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "1.8rem" }}>
+        Du musst nicht erst erschöpft sein, um dir etwas Gutes zu tun. Einfach ankommen. Einfach loslassen. Einfach sein.
+      </p>
+
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "0.6rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Dauer</span>
+        <span style={{ fontFamily: serif, fontSize: "0.95rem", color: "#6F4D42", fontStyle: "italic" }}>60 Minuten</span>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", padding: "0.85rem 1rem", borderRadius: 14, background: "rgba(253,240,230,0.5)", border: "1px solid rgba(233,195,138,0.20)", marginBottom: "1.5rem" }}>
+        <span style={{ fontFamily: sans, fontSize: "0.78rem", color: "#9C7B6E", letterSpacing: "0.05em" }}>Investition in dich</span>
+        <span style={{ fontFamily: serif, fontSize: "1.05rem", color: "#6F4D42", fontWeight: 500 }}>89 €</span>
+      </div>
+
+      <a href="#" onClick={(e) => { e.preventDefault(); openCalendly("warm_soul"); }} style={{
+        display: "block", textAlign: "center",
+        padding: "1rem 2rem", borderRadius: 100,
+        background: "linear-gradient(150deg, #D89A93 0%, #C88880 50%, #B87870 100%)",
+        color: "#FDF6F2", fontFamily: sans, fontSize: "0.85rem", letterSpacing: "0.08em",
+        textDecoration: "none",
+        boxShadow: "0 0 0 1px rgba(233,195,138,0.75), 0 0 0 2.5px rgba(201,160,85,0.15), 0 6px 22px rgba(217,154,147,0.30)",
+      }}>Jetzt buchen</a>
+    </div>
+  ),
     impressum: (
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Rechtliches</p>
