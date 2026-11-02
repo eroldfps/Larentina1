@@ -1648,7 +1648,7 @@ function Footer() {
 }
 
 const MODAL_CONTENT = {
-      warm_soul: "https://calendly.com/larentina/neues-meeting-2",
+  warm_soul: (
     <div>
       <p style={{ fontFamily: sans, fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C9A055", marginBottom: "0.8rem" }}>Warm Soul Harmony</p>
       <h2 style={{ fontFamily: serif, color: "#6F4D42", fontSize: "2.2rem", lineHeight: 1.15, fontWeight: 400, marginBottom: "0.4rem" }}>
