@@ -24,6 +24,7 @@ const CALENDLY_LINKS = {
   vital_balance: "https://calendly.com/larentina/soul-harmony-vitalbalance",
   golden_space: "https://calendly.com/larentina/neues-meeting-1",
   seelenbilder: "https://calendly.com/larentina/seelenbilder",
+  warm_soul: "https://calendly.com/larentina/neues-meeting-2",
 };
 
 function openCalendly(key) {
