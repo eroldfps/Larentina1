@@ -35,7 +35,6 @@ function openCalendly(key) {
     window.Calendly.initPopupWidget({ url });
   }
 }
-import { motion, useInView, AnimatePresence } from "framer-motion";
 
 // ─── TOKENS v13 — Larentina · Sacred Sanctuary Edition ─────────────────────
 const C = {
