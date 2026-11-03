@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { createClient } from "@sanity/client";
 import { PortableText } from "@portabletext/react";
 
@@ -2559,6 +2560,7 @@ export default function App() {
   return (
     <>
       <FontStyle />
+      <Analytics />
       <Navbar />
       <main>
         <Hero />
