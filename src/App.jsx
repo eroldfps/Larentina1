@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Analytics } from "@vercel/analytics/react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { createClient } from "@sanity/client";
 import { PortableText } from "@portabletext/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const sanityClient = createClient({
   projectId: "tpy3ua1h",
