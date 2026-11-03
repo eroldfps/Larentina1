@@ -933,7 +933,7 @@ function ServicesSection() {
             <Reveal key={card.title} delay={i * 0.1}>
               <motion.div whileHover={{ y: -7 }} transition={{ duration: 0.3 }}
                 className={card.highlight ? "btn-shimmer rose-glow" : ""}
-                style={{ padding: card.special ? "0" : "2.2rem", borderRadius: 24, height: "100%", display: "flex", flexDirection: "column", gap: "1.25rem", overflow: "hidden", background: card.special ? "#F8DCCB" : "#3D2820", border: `1px solid ${card.special ? "rgba(233,195,138,0.22)" : "#3D2820"}`, boxShadow: card.highlight ? "0 28px 60px rgba(61,40,32,0.18), 0 0 40px rgba(216,154,147,0.25)" : card.special ? "0 4px 24px rgba(217,154,147,0.10)" : "0 12px 36px rgba(61,40,32,0.22)",
+                style={{ padding: card.special ? "0" : "2.2rem", borderRadius: 24, height: "100%", display: "flex", flexDirection: "column", gap: "1.25rem", overflow: "hidden", background: card.special ? "#F8DCCB" : "#3D2820", border: `1px solid ${card.special ? "rgba(233,195,138,0.22)" : "#3D2820"}`, boxShadow: card.highlight ? "0 28px 60px rgba(61,40,32,0.18), 0 0 40px rgba(216,154,147,0.25)" : card.special ? "0 4px 24px rgba(217,154,147,0.10)" : "0 12px 36px rgba(61,40,32,0.22)", position: "relative" }}>
                 {card.special && (
                   <>
                     <div className="aspect-[4/3] w-full" style={{ background: "#3D2820", overflow: "hidden" }}>
