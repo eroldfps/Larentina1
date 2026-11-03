@@ -933,7 +933,7 @@ function ServicesSection() {
             <Reveal key={card.title} delay={i * 0.1}>
               <motion.div whileHover={{ y: -7 }} transition={{ duration: 0.3 }}
                 className={card.highlight ? "btn-shimmer rose-glow" : ""}
-                style={{ padding: card.special ? "0" : "2.2rem", borderRadius: 24, height: "100%", display: "flex", flexDirection: "column", gap: "1.25rem", overflow: "hidden", background: card.highlight ? "#3D2820" : card.special ? "#F8DCCB" : "#FBE5D3", border: `1px solid ${card.highlight ? "#3D2820" : "rgba(233,195,138,0.22)"}`, boxShadow: card.highlight ? "0 28px 60px rgba(61,40,32,0.18), 0 0 40px rgba(216,154,147,0.25)" : "0 4px 24px rgba(217,154,147,0.10)", position: "relative" }}>
+                style={{ padding: card.special ? "0" : "2.2rem", borderRadius: 24, height: "100%", display: "flex", flexDirection: "column", gap: "1.25rem", overflow: "hidden", background: card.special ? "#F8DCCB" : "#3D2820", border: `1px solid ${card.special ? "rgba(233,195,138,0.22)" : "#3D2820"}`, boxShadow: card.highlight ? "0 28px 60px rgba(61,40,32,0.18), 0 0 40px rgba(216,154,147,0.25)" : card.special ? "0 4px 24px rgba(217,154,147,0.10)" : "0 12px 36px rgba(61,40,32,0.22)",
                 {card.special && (
                   <>
                     <div className="aspect-[4/3] w-full" style={{ background: "#3D2820", overflow: "hidden" }}>
@@ -961,14 +961,14 @@ function ServicesSection() {
                       ) : (
                         <Tag style={{ color: card.highlight ? C.sand : undefined }}>{card.tag}</Tag>
                       )}
-                      <h3 style={{ fontFamily: serif, color: card.highlight ? C.cream : C.dark, fontSize: "1.45rem", fontWeight: 600 }}>{card.title}</h3>
+                      <h3 style={{ fontFamily: serif, color: C.cream, fontSize: "1.45rem", fontWeight: 600 }}>{card.title}</h3>
                     </div>
-                    <p style={{ fontFamily: sans, color: card.highlight ? C.soft : C.muted, fontSize: "0.875rem", lineHeight: 1.8 }}>{card.desc}</p>
+                    <p style={{ fontFamily: sans, color: C.soft, fontSize: "0.875rem", lineHeight: 1.8 }}>{card.desc}</p>
                     <ul style={{ display: "flex", flexDirection: "column", gap: "0.55rem", flex: 1 }}>
                       {card.outcomes.map(o => (
                         <li key={o} style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
                           <span style={{ color: C.sage, fontSize: "0.55rem", flexShrink: 0 }}>✦</span>
-                          <span style={{ fontFamily: sans, color: card.highlight ? C.sand : C.muted, fontSize: "0.82rem" }}>{o}</span>
+                          <span style={{ fontFamily: sans, color: C.sand, fontSize: "0.82rem" }}>{o}</span>
                         </li>
                       ))}
                     </ul>
@@ -976,7 +976,7 @@ function ServicesSection() {
                       <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap" }}>
                       <motion.a href="#" whileHover={{ opacity: 0.85 }}
                         onClick={(e) => { if (card.modalType) { e.preventDefault(); window.dispatchEvent(new CustomEvent("openModal", { detail: { type: card.modalType } })); } }}
-                        style={{ display: "inline-block", padding: "0.75rem 1.8rem", borderRadius: 100, fontFamily: sans, fontSize: "0.8rem", background: card.highlight ? C.cream : C.dark, color: card.highlight ? C.dark : C.bg, letterSpacing: "0.04em", transition: "all 0.25s" }}>
+                        style={{ display: "inline-block", padding: "0.75rem 1.8rem", borderRadius: 100, fontFamily: sans, fontSize: "0.8rem", background: C.cream, color: C.dark, letterSpacing: "0.04em", transition: "all 0.25s" }}>
                         {card.cta}
                       </motion.a>
                                             {card.modalType && (
